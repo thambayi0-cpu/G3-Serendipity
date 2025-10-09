@@ -45,16 +45,18 @@ void cashier()
 	getline(cin, isbn);
 	cout << "Enter quantity: ";
 	cin >> qty;
-	while (cin.fail()) //Test for fail state
+	while (cin.fail() || qty < 0) //Test for fail state
 	{
 		cin.clear();
 		cin.ignore(1000, '\n');
 		cout << "Invalid. Please enter the quantity: ";
 		cin >> qty;
 	}
+	if (qty > 100)
+		qty = 100;
 	cout << "Enter price: ";
 	cin >> price;
-	while (cin.fail())
+	while (cin.fail() || price < 0)
 	{
 		cin.clear();
 		cin.ignore(1000, '\n');

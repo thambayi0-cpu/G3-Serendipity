@@ -11,7 +11,7 @@
 ****************************************************************************/
 
 #include "format.h"
-#include "addBook.h"
+#include "invMenu.h"
 
 void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive)
 {
