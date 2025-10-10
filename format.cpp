@@ -17,9 +17,29 @@ void printDash()
 
 void printBorder()
 {
-	cout << left << setw(TOTAL_WIDTH) << "|" << "|" << endl;
+	cout << left << setw(TOTAL_WIDTH) << "│" << "│" << endl;
 	return;
 }
+
+void printTopDash()
+{
+	cout << right << "┌" << setfill('-') << setw(TOTAL_WIDTH) << "┐" << setfill(' ') << left << endl;
+	return;
+}
+
+void printBottomDash()
+{
+	cout << right << "└" << setfill('-') << setw(TOTAL_WIDTH) << "┘" << setfill(' ') << left << endl;
+	return;
+}
+
+void printMidDash()
+{
+	cout << right << "├" << setfill('-') << setw(TOTAL_WIDTH) << "┤" << setfill(' ') << left << endl;
+	return;
+}
+
+
 
 
 

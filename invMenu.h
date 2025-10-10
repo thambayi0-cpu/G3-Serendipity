@@ -30,7 +30,7 @@ class bookType
 	public:
 
 		//Setters//
-		void setTitle(string n);
+		void setTitle(string t);
 		void setIsbn(string i);
 		void setAuthor(string a);
 		void setPublisher(string p);

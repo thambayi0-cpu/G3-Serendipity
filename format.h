@@ -19,6 +19,12 @@ void printDash(); //Prints +-----+
 
 void printBorder(); //Prints |     |
 
+void printTopDash();
+
+void printBottomDash();
+
+void printMidDash();
+
 
 /******************************************************************************
 * FUNCTION OutputClassHeading
