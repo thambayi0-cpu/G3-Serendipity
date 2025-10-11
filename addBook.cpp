@@ -13,49 +13,81 @@
 #include "format.h"
 #include "invMenu.h"
 
-void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive)
+using namespace std;
+
+void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive, vector<bookType> books)
 {
-	
+	const int ENTER_WIDTH = 37;
+
+	cout << "\033[H\033[2J"; //Clear screen
+
+	printTopDash();
+
+	cout << "│                           SERENDIPITY BOOKSELLERS                            │" << endl;
+	cout << "│                                   ADD BOOK                                   │" << endl;
+
+	printBorder();
+
+	cout << "│                             DATABASE SIZE:  20 CURRENT BOOK COUNT: " << left << setw(3) << bookType::bookCount << right << "       |" << endl;
+
+	printBorder();
+
+	cout << setw(TOTAL_WIDTH)<< "│                                                 --PENDING VALUES" << "│" << endl;
+
+	cout << setw(ENTER_WIDTH) << "│ <5>  Enter Date Added  (mm/dd/yyyy)" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << books.at(bookType::bookCount).getDate() << endl;
+
+	printBottomDash();
+
+
+	cout << "Press enter to continue";
+	cin.get();
+	return;
 }
 
 //bookType//
 
+unsigned int bookType::bookCount = 1;
+
 //Setters//
-bookType::void setTitle(string t)
+void bookType::bookAdd()
+{bookCount++;}
+void bookType::setTitle(string t)
 {title = t;}
-bookType::void setIsbn(string i)
+void bookType::setIsbn(string i)
 {isbn = i;}
-bookType::void setAuthor(string a)
+void bookType::setAuthor(string a)
 {author = a;}
-bookType::void setPublisher(string p)
+void bookType::setPublisher(string p)
 {publisher = p;}
-bookType::void setDate(string d)
+void bookType::setDate(string d)
 {date = d;}
-bookType::void setQty(unsigned int q)
+void bookType::setQty(unsigned int q)
 {qty = q;}
-bookType::void setWholesale(unsigned int w)
+void bookType::setWholesale(unsigned int w)
 {wholesale = w;}
-bookType::void setRetail(unsigned int r)
+void bookType::setRetail(unsigned int r)
 {retail = r;}
 
-bookType::string getTitle()
+unsigned int bookType::getBookCount()
+{return bookCount;}
+string bookType::getTitle()
 {return title;}
-bookType::string getIsbn()
+string bookType::getIsbn()
 {return isbn;}
-bookType::string getAuthor()
+string bookType::getAuthor()
 {return author;}
-bookType::string getPublisher()
+string bookType::getPublisher()
 {return publisher;}
-bookType::string getDate()
+string bookType::getDate()
 {return date;}
-bookType::unsigned int getQty()
+unsigned int bookType::getQty()
 {return qty;}
-bookType::unsigned int getWholesale()
+unsigned int bookType::getWholesale()
 {return wholesale;}
-bookType::unsigned int getRetail()
+unsigned int bookType::getRetail()
 {return retail;}
 
-bookType::bookType(string t = "", string i = "", string a = "", string p = "", string d = "", unsigned int q = 0, unsigned int w = 0, unsigned int r = 0)
+bookType::bookType(string t = "EMPTY", string i = "EMPTY", string a = "EMPTY", string p = "EMPTY", string d = "0", unsigned int q = 0, unsigned int w = 0, unsigned int r = 0)
 {
         cout << "Calling default constructor" << endl;
         title = t;

@@ -13,7 +13,7 @@
 using namespace std;
 
 
-const int TOTAL_WIDTH = 79;
+const int TOTAL_WIDTH = 81;
 
 void printDash(); //Prints +-----+
 
