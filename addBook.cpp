@@ -15,7 +15,7 @@
 
 using namespace std;
 
-void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive, vector<bookType> books)
+void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive, vector<bookType>& books)
 {
 	const int ENTER_WIDTH = 37;
 
@@ -34,7 +34,7 @@ void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive, vector<bookT
 
 	cout << setw(TOTAL_WIDTH)<< "│                                                 --PENDING VALUES" << "│" << endl;
 
-	cout << setw(ENTER_WIDTH) << "│ <5>  Enter Date Added  (mm/dd/yyyy)" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << books.at(bookType::bookCount).getDate() << endl;
+	cout << setw(ENTER_WIDTH) << "│ <5>  Enter Date Added  (mm/dd/yyyy)" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 5) << books.at(bookType::bookCount).getDate() << "│" << endl;
 
 	printBottomDash();
 
@@ -46,7 +46,7 @@ void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive, vector<bookT
 
 //bookType//
 
-unsigned int bookType::bookCount = 1;
+unsigned int bookType::bookCount = 0;
 
 //Setters//
 void bookType::bookAdd()
@@ -87,7 +87,7 @@ unsigned int bookType::getWholesale()
 unsigned int bookType::getRetail()
 {return retail;}
 
-bookType::bookType(string t = "EMPTY", string i = "EMPTY", string a = "EMPTY", string p = "EMPTY", string d = "0", unsigned int q = 0, unsigned int w = 0, unsigned int r = 0)
+bookType::bookType(string t, string i, string a, string p, string d, unsigned int q, unsigned int w, unsigned int r)
 {
         cout << "Calling default constructor" << endl;
         title = t;

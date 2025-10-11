@@ -50,7 +50,7 @@ class bookType
 		unsigned int getRetail();
 
 		//Constructors//
-		bookType(std::string n, std::string i, std::string a, std::string p, std::string d, unsigned int q, unsigned int w, unsigned int r);
+		bookType(std::string t = "EMPTY", std::string i = "EMPTY", std::string a = "EMPTY", std::string p = "EMPTY", std::string d = "EMPTY", unsigned int q = 0, unsigned int w = 0, unsigned int r = 0);
 
 		//Destructors//
 		~bookType();
@@ -61,7 +61,7 @@ void invMenu(bool &keepInvMenuActive);
 
 void lookUpBook(bool &keepInvMenuActive, bool &keeplookUpBookMenuActive);
 
-void addBook(bool &keepInvMenuActive, bool &keepAddBookMenuActive, std::vector<bookType> books);
+void addBook(bool &keepInvMenuActive, bool &keepAddBookMenuActive, std::vector<bookType>& books);
 
 void editBook(bool &keepInvMenuActive, bool &keepeditBookMenuActive);
 

@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-	vector<bookType> books;
+	vector<bookType> books(20);
 	bool b1 = true;
 	bool b2 = true;
 	cout << "\033[H\033[2J";
