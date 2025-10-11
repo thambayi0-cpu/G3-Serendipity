@@ -54,11 +54,17 @@ void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive, vector<bookT
 
 	cout << setw(TOTAL_WIDTH) << "│ <0>  Return to Inventory Menu" << "│" << endl;
 
+	printBorder();
+
+	printMidDash();
+
+	cout << setw(TOTAL_WIDTH) << "│ Choice: " <<"│" << endl;
+
 	printBottomDash();
 
-
-	cout << "Press enter to continue";
+	cout << "Press enter to continue" << "\x1b[20;11H";
 	cin.get();
+	cout << "\x1b[23;1H";
 	return;
 }
 
