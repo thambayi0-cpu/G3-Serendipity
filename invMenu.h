@@ -18,8 +18,8 @@ class bookType
 		std::string publisher;
 		std::string date; // mm/dd/yy
 		unsigned int qty;
-		unsigned int wholesale;
-		unsigned int retail;
+		float wholesale;
+		float retail;
 
 	public:
 
@@ -34,8 +34,8 @@ class bookType
 		void setPublisher(std::string p);
 		void setDate(std::string d);
 		void setQty(unsigned int q);
-		void setWholesale(unsigned int w);
-		void setRetail(unsigned int r);
+		void setWholesale(float w);
+		void setRetail(float r);
 
 		//Accessors//
 		unsigned int getBookCount();
@@ -46,11 +46,11 @@ class bookType
 		std::string getPublisher();
 		std::string getDate();
 		unsigned int getQty();
-		unsigned int getWholesale();
-		unsigned int getRetail();
+		float getWholesale();
+		float getRetail();
 
 		//Constructors//
-		bookType(std::string t = "EMPTY", std::string i = "EMPTY", std::string a = "EMPTY", std::string p = "EMPTY", std::string d = "EMPTY", unsigned int q = 0, unsigned int w = 0, unsigned int r = 0);
+		bookType(std::string t = "EMPTY", std::string i = "EMPTY", std::string a = "EMPTY", std::string p = "EMPTY", std::string d = "EMPTY", unsigned int q = 0, float w = 0.0, float r = 0.0);
 
 		//Destructors//
 		~bookType();

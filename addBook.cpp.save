@@ -44,15 +44,15 @@ void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive, vector<bookT
 
 	cout << setw(ENTER_WIDTH) << "│ <5>  Enter Date Added  (mm/dd/yyyy)" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << books.at(bookType::bookCount).getDate() << "│" << endl;
 
-	cout << setw(ENTER_WIDTH) << "│ <6>  Enter Quantity on Hand" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << fixed << setprecision(0) << books.at(bookType::bookCount).getQty() << "│" << endl;
+	cout << setw(ENTER_WIDTH) << "│ <6>  Enter Quantity on Hand" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << books.at(bookType::bookCount).getQty() << "│" << endl;
 
-	cout << setw(ENTER_WIDTH) << "│ <7>  Enter Wholesale Cost" << setw(3) << ">" << "$ " << setw(TOTAL_WIDTH - ENTER_WIDTH - 5) << setprecision(2) << books.at(bookType::bookCount).getWholesale() << "│" << endl;
+	cout << setw(ENTER_WIDTH) << "│ <7>  Enter Wholesale Cost" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << books.at(bookType::bookCount).getWholesale() << "│" << endl;
 
-	cout << setw(ENTER_WIDTH) << "│ <8>  Enter Retail Price" << setw(3) << ">" << "$ " << setw(TOTAL_WIDTH - ENTER_WIDTH - 5) << setprecision(2) << books.at(bookType::bookCount).getRetail() << "│" << endl;
+	cout << setw(ENTER_WIDTH) << "│ <8>  Enter Retail Price" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << books.at(bookType::bookCount).getRetail() << "│" << endl;
 
-	cout << setw(TOTAL_WIDTH) << "│ <9>  Save Book to Database" << "│" << endl;
+	cout << setw(ENTER_WIDTH) << "│ <9>  Save Book to database" << "│" << endl;
 
-	cout << setw(TOTAL_WIDTH) << "│ <0>  Return to Inventory Menu" << "│" << endl;
+	cout << setw(ENTER_WIDTH) << "│ <0>  Sav" << "│" << endl;
 
 	printBottomDash();
 
@@ -81,9 +81,9 @@ void bookType::setDate(string d)
 {date = d;}
 void bookType::setQty(unsigned int q)
 {qty = q;}
-void bookType::setWholesale(float w)
+void bookType::setWholesale(unsigned int w)
 {wholesale = w;}
-void bookType::setRetail(float r)
+void bookType::setRetail(unsigned int r)
 {retail = r;}
 
 unsigned int bookType::getBookCount()
@@ -100,12 +100,12 @@ string bookType::getDate()
 {return date;}
 unsigned int bookType::getQty()
 {return qty;}
-float bookType::getWholesale()
+unsigned int bookType::getWholesale()
 {return wholesale;}
-float bookType::getRetail()
+unsigned int bookType::getRetail()
 {return retail;}
 
-bookType::bookType(string t, string i, string a, string p, string d, unsigned int q, float w, float r)
+bookType::bookType(string t, string i, string a, string p, string d, unsigned int q, unsigned int w, unsigned int r)
 {
         cout << "Calling default constructor" << endl;
         title = t;
