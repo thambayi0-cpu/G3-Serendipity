@@ -28,6 +28,9 @@ class bookType
 		//Setters//
 		void bookAdd();
 
+		void bookFill(const bookType& other);
+		void bookEmpty();
+
 		void setTitle(std::string t);
 		void setIsbn(std::string i);
 		void setAuthor(std::string a);
@@ -38,16 +41,16 @@ class bookType
 		void setRetail(float r);
 
 		//Accessors//
-		unsigned int getBookCount();
+		unsigned int getBookCount() const;
 
-		std::string getTitle();
-		std::string getIsbn();
-		std::string getAuthor();
-		std::string getPublisher();
-		std::string getDate();
-		unsigned int getQty();
-		float getWholesale();
-		float getRetail();
+		std::string getTitle() const;
+		std::string getIsbn() const;
+		std::string getAuthor() const;
+		std::string getPublisher() const;
+		std::string getDate() const;
+		unsigned int getQty() const;
+		float getWholesale() const;
+		float getRetail() const;
 
 		//Constructors//
 		bookType(std::string t = "EMPTY", std::string i = "EMPTY", std::string a = "EMPTY", std::string p = "EMPTY", std::string d = "EMPTY", unsigned int q = 0, float w = 0.0, float r = 0.0);
