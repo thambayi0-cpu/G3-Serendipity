@@ -8,7 +8,7 @@
 #include <fstream>
 #include <sstream>
 #include <limits>
-#include "invMenu.h"
+#include "bookType.h"
 
 
 using namespace std;

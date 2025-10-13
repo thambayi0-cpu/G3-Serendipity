@@ -14,6 +14,7 @@
 #include "cashier.h"
 #include "invMenu.h"
 #include "reports.h"
+#include "bookType.h"
 
 
 int main()

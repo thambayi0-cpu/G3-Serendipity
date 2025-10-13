@@ -1,49 +1,52 @@
-run-test: mainmenu.o format.o cashier.o invMenu.o reports.o lookUpBook.o addBook.o editBook.o deleteBook.o repListing.o repWholesale.o repRetail.o repQty.o repCost.o repAge.o
-	g++ -std=c++20 -Wall -Werror -o run-test mainmenu.o format.o cashier.o invMenu.o reports.o lookUpBook.o addBook.o editBook.o deleteBook.o repListing.o repWholesale.o repRetail.o repQty.o repCost.o repAge.o
+run-test: mainmenu.o format.o cashier.o invMenu.o reports.o lookUpBook.o addBook.o editBook.o deleteBook.o repListing.o repWholesale.o repRetail.o repQty.o repCost.o repAge.o bookType.o
+	g++ -std=c++20 -Wall -Werror -o run-test mainmenu.o format.o cashier.o invMenu.o reports.o lookUpBook.o addBook.o editBook.o deleteBook.o repListing.o repWholesale.o repRetail.o repQty.o repCost.o repAge.o bookType.o
 
-mainmenu.o: mainmenu.cpp format.h
+bookType.o: bookType.cpp
+	g++ -std=c++20 -Wall -Werror -c bookType.cpp
+
+mainmenu.o: mainmenu.cpp
 	g++ -std=c++20 -Wall -Werror -c mainmenu.cpp
 
-format.o: format.cpp format.h
+format.o: format.cpp
 	g++ -std=c++20 -Wall -Werror -c format.cpp
 
-cashier.o: cashier.cpp cashier.h
+cashier.o: cashier.cpp
 	g++ -std=c++20 -Wall -Werror -c cashier.cpp
 
-invMenu.o: invMenu.cpp invMenu.h
+invMenu.o: invMenu.cpp
 	g++ -std=c++20 -Wall -Werror -c invMenu.cpp
 
-reports.o: reports.cpp reports.h
+reports.o: reports.cpp
 	g++ -std=c++20 -Wall -Werror -c reports.cpp
 
-lookUpBook.o: lookUpBook.cpp lookUpBook.h
+lookUpBook.o: lookUpBook.cpp
 	g++ -std=c++20 -Wall -Werror -c lookUpBook.cpp
 
-addBook.o: addBook.cpp invMenu.h
+addBook.o: addBook.cpp
 	g++ -std=c++20 -Wall -Werror -c addBook.cpp
 
-editBook.o: editBook.cpp editBook.h
+editBook.o: editBook.cpp
 	g++ -std=c++20 -Wall -Werror -c editBook.cpp
 
-deleteBook.o: deleteBook.cpp deleteBook.h
+deleteBook.o: deleteBook.cpp
 	g++ -std=c++20 -Wall -Werror -c deleteBook.cpp
 
-repListing.o: repListing.cpp repListing.h
+repListing.o: repListing.cpp
 	g++ -std=c++20 -Wall -Werror -c repListing.cpp
 
-repWholesale.o: repWholesale.cpp repWholesale.h
+repWholesale.o: repWholesale.cpp
 	g++ -std=c++20 -Wall -Werror -c repWholesale.cpp
 
-repRetail.o: repRetail.cpp repRetail.h
+repRetail.o: repRetail.cpp
 	g++ -std=c++20 -Wall -Werror -c repRetail.cpp
 
-repQty.o: repQty.cpp repQty.h
+repQty.o: repQty.cpp
 	g++ -std=c++20 -Wall -Werror -c repQty.cpp
 
-repCost.o: repCost.cpp repCost.h
+repCost.o: repCost.cpp
 	g++ -std=c++20 -Wall -Werror -c repCost.cpp
 
-repAge.o: repAge.cpp repAge.h
+repAge.o: repAge.cpp
 	g++ -std=c++20 -Wall -Werror -c repAge.cpp
 
 

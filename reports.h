@@ -3,6 +3,8 @@
 #ifndef REPORTS_H
 #define REPORTS_H
 
+#include "bookType.h"
+
 void reports (bool &keepReportsMenuActive);
 
 void repListing  (bool &keepReportsMenuActive, bool &keepRepListingMenuActive);
