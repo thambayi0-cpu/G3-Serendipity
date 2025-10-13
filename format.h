@@ -8,6 +8,7 @@
 #include <fstream>
 #include <sstream>
 #include <limits>
+#include "invMenu.h"
 
 
 using namespace std;
@@ -25,9 +26,7 @@ void printBottomDash();
 
 void printMidDash();
 
-bool isInt(const string& str);
-
-bool isFloat(const string& str);
+void printAddBookMenu(const vector<bookType>& books, const bookType& emptyBook);
 
 /******************************************************************************
 * FUNCTION OutputClassHeading

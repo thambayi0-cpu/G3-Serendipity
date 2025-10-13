@@ -39,21 +39,55 @@ void printMidDash()
 	return;
 }
 
-
-bool isInt(const string& str)
+void printAddBookMenu(const vector<bookType>& books, const bookType& emptyBook)
 {
-	stringstream ss(str);
-	int value;
-	return (ss >> value) && ss.eof() && value >= 0;
-}
+	const int ENTER_WIDTH = 39;
 
-bool isFloat(const string& str)
-{
-	stringstream ss(str);
-	float value;
-	return (ss >> value) && ss.eof() && value >= 0;
-}
+	cout << "\033[H\033[2J"; //Clear screen
 
+	printTopDash();
+
+   cout << "│                           SERENDIPITY BOOKSELLERS                            │" << endl;
+   cout << "│                                   ADD BOOK                                   │" << endl;
+
+   printBorder();
+
+   cout << "│                             DATABASE SIZE:  20 CURRENT BOOK COUNT: " << left << setw(3) << bookType::bookCount << right << "       │" << endl;
+
+	printBorder();
+
+   cout << setw(TOTAL_WIDTH) << "│                                                 --PENDING VALUES" << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <1>  Enter Book Title" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << (emptyBook.getTitle().size() > 39 ? emptyBook.getTitle().substr(0, 37) + "… " : emptyBook.getTitle()) << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <2>  Enter ISBN" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << (emptyBook.getIsbn().size() > 13 ? emptyBook.getIsbn().substr(0, 13) : emptyBook.getIsbn()) << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <3>  Enter Author" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << (emptyBook.getAuthor().size() > 39 ? emptyBook.getAuthor().substr(0, 37) + "…" : emptyBook.getAuthor()) << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <4>  Enter Publisher" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << (emptyBook.getPublisher().size() > 39 ? emptyBook.getPublisher().substr(0, 37) + "…" : emptyBook.getPublisher()) << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <5>  Enter Date Added  (mm/dd/yyyy)" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << (emptyBook.getDate().size() > 10 ? emptyBook.getDate().substr(0, 10) : emptyBook.getDate()) << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <6>  Enter Quantity on Hand" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << fixed << setprecision(0) << emptyBook.getQty() << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <7>  Enter Wholesale Cost" << setw(3) << ">" << "$ " << setw(TOTAL_WIDTH - ENTER_WIDTH - 5) << setprecision(2) << emptyBook.getWholesale() << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <8>  Enter Retail Price" << setw(3) << ">" << "$ " << setw(TOTAL_WIDTH - ENTER_WIDTH - 5) << setprecision(2) << emptyBook.getRetail() << "│" << endl;
+
+   cout << setw(TOTAL_WIDTH) << "│ <9>  Save Book to Database" << "│" << endl;
+
+   cout << setw(TOTAL_WIDTH) << "│ <0>  Return to Inventory Menu" << "│" << endl;
+
+   printBorder();
+
+	printMidDash();
+
+   cout << setw(TOTAL_WIDTH) << "│ Choice: " <<"│" << endl;
+
+   printBottomDash();
+
+	return;
+}
 
 
 /******************************************************************************
