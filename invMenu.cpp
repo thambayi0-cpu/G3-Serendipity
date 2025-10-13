@@ -17,7 +17,7 @@
 #include "editBook.h"
 #include "deleteBook.h"
 
-void invMenu (bool &keepInvMenuActive)
+void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 {
 	// Constants
 	const string INPUT_PROMPT     = "Enter Your Choice: ";
@@ -159,7 +159,7 @@ void invMenu (bool &keepInvMenuActive)
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 				keepAddBookMenuActive = true;
-				addBook(keepInvMenuActive, keepAddBookMenuActive);
+				addBook(keepInvMenuActive, keepAddBookMenuActive, books);
 				break;
 
 			// Edit Book

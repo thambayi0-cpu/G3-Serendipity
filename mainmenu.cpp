@@ -31,6 +31,8 @@ int main()
 
 
 	// Variables
+	vector<bookType> books(20);
+
 	string         headingString;              // OUT  - class heading
 	string         endOfProgramString;         // OUT  - end of program statement
 	string         printMainMenuString;			 // OUT  - mainmenu print
@@ -187,7 +189,7 @@ int main()
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 				keepInvMenuActive = true;
-				invMenu(keepInvMenuActive);
+				invMenu(keepInvMenuActive, books);
 				break;
 
 			// Reports Menu
