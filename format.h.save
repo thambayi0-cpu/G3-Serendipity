@@ -25,9 +25,8 @@ void printBottomDash();
 
 void printMidDash();
 
-bool isInt(const string& str);
 
-bool isFloat(const string& str);
+
 
 /******************************************************************************
 * FUNCTION OutputClassHeading

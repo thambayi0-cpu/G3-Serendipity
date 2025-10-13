@@ -16,6 +16,7 @@ int main()
 	cin.get();
 	//cashier();
 	addBook(b1, b2, books);
+	cout << "\033[H\033[2J";
 	cout << "Thank you!" << endl;
 	return 0;
 }

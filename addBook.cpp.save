@@ -18,8 +18,18 @@ using namespace std;
 void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive, vector<bookType>& books)
 {
 	const int ENTER_WIDTH = 39;
-//	bool notDone = true;
-//	bookType emptyBook;
+	bool notDone = true;
+	string choice;
+	bookType emptyBook;
+
+	string t;
+	string i;
+	string a;
+	string p;
+	string d;
+	int q;
+	float w;
+	float r;
 
 	cout << "\033[H\033[2J"; //Clear screen
 
@@ -36,21 +46,21 @@ void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive, vector<bookT
 
 	cout << setw(TOTAL_WIDTH) << "│                                                 --PENDING VALUES" << "│" << endl;
 
-	cout << setw(ENTER_WIDTH) << "│ <1>  Enter Book Title" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << books.at(bookType::bookCount).getTitle() << "│" << endl;
+	cout << setw(ENTER_WIDTH) << "│ <1>  Enter Book Title" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << emptyBook.getTitle() << "│" << endl;
 
-	cout << setw(ENTER_WIDTH) << "│ <2>  Enter ISBN" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << books.at(bookType::bookCount).getIsbn() << "│" << endl;
+	cout << setw(ENTER_WIDTH) << "│ <2>  Enter ISBN" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << emptyBook.getIsbn() << "│" << endl;
 
-	cout << setw(ENTER_WIDTH) << "│ <3>  Enter Author" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << books.at(bookType::bookCount).getAuthor() << "│" << endl;
+	cout << setw(ENTER_WIDTH) << "│ <3>  Enter Author" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << emptyBook.getAuthor() << "│" << endl;
 
-	cout << setw(ENTER_WIDTH) << "│ <4>  Enter Publisher" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << books.at(bookType::bookCount).getPublisher() << "│" << endl;
+	cout << setw(ENTER_WIDTH) << "│ <4>  Enter Publisher" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << emptyBook.getPublisher() << "│" << endl;
 
-	cout << setw(ENTER_WIDTH) << "│ <5>  Enter Date Added  (mm/dd/yyyy)" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << books.at(bookType::bookCount).getDate() << "│" << endl;
+	cout << setw(ENTER_WIDTH) << "│ <5>  Enter Date Added  (mm/dd/yyyy)" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << emptyBook.getDate() << "│" << endl;
 
-	cout << setw(ENTER_WIDTH) << "│ <6>  Enter Quantity on Hand" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << fixed << setprecision(0) << books.at(bookType::bookCount).getQty() << "│" << endl;
+	cout << setw(ENTER_WIDTH) << "│ <6>  Enter Quantity on Hand" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << fixed << setprecision(0) << emptyBook.getQty() << "│" << endl;
 
-	cout << setw(ENTER_WIDTH) << "│ <7>  Enter Wholesale Cost" << setw(3) << ">" << "$ " << setw(TOTAL_WIDTH - ENTER_WIDTH - 5) << setprecision(2) << books.at(bookType::bookCount).getWholesale() << "│" << endl;
+	cout << setw(ENTER_WIDTH) << "│ <7>  Enter Wholesale Cost" << setw(3) << ">" << "$ " << setw(TOTAL_WIDTH - ENTER_WIDTH - 5) << setprecision(2) << emptyBook.getWholesale() << "│" << endl;
 
-	cout << setw(ENTER_WIDTH) << "│ <8>  Enter Retail Price" << setw(3) << ">" << "$ " << setw(TOTAL_WIDTH - ENTER_WIDTH - 5) << setprecision(2) << books.at(bookType::bookCount).getRetail() << "│" << endl;
+	cout << setw(ENTER_WIDTH) << "│ <8>  Enter Retail Price" << setw(3) << ">" << "$ " << setw(TOTAL_WIDTH - ENTER_WIDTH - 5) << setprecision(2) << emptyBook.getRetail() << "│" << endl;
 
 	cout << setw(TOTAL_WIDTH) << "│ <9>  Save Book to Database" << "│" << endl;
 
@@ -64,11 +74,177 @@ void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive, vector<bookT
 
 	printBottomDash();
 
-	cout << "Press enter to continue" << "\x1b[20;11H";
+	do
+	{
+		cout << "\x1b[20;3H" << string(77, ' ');
+		cout << "\x1b[20;3H" << "Choice: ";
+		cin.i
+		getline(cin, choice);
+		if (!isInt(choice))
+		{
+			cin.ignore(1000, '\n');
+			cout << "\x1b[23;1H" << "INVALID CHOICE";
+			cout << "\x1b[20;11H" << string(69, ' ') << "\x1b[20;11H";
+			getline(cin, choice);
+		}
+		cout << "\x1b[23;1H" << "\x1b[2K";
+
+		switch (stoi(choice))
+		{
+			case 0:
+				notDone = false; break;
+
+			case 1:
+				cout << "\x1b[20;3H" << string(77, ' ');
+				cout << "\x1b[20;3H" << "Enter Book Title: ";
+				cin.ignore(1000, '\n');
+				getline(cin, t);
+				emptyBook.setTitle(t);
+				cout << "\x1b[8;41H" << string(39, ' ');
+				cout << "\x1b[8;41H";
+				if (t.size() > 39)
+					t = t.substr(0,37) + "…";
+				cout << t;
+				break;
+
+			case 2:
+				cout << "\x1b[20;3H" << string(77, ' ');
+				cout << "\x1b[20;3H" << "Enter Book ISBN: ";
+				cin.ignore(1000, '\n');
+				getline(cin, i);
+				emptyBook.setIsbn(i);
+				cout << "\x1b[9;41H" << string(39, ' ');
+				cout << "\x1b[9;41H";
+				if (i.size() > 13)
+					i = i.substr(0,13);
+				cout << i;
+				break;
+
+			case 3:
+				cout << "\x1b[20;3H" << string(77, ' ');
+				cout << "\x1b[20;3H" << "Enter Book Author: ";
+				cin.ignore(1000, '\n');
+				getline(cin, a);
+				emptyBook.setAuthor(a);
+				cout << "\x1b[10;41H" << string(39, ' ');
+				cout << "\x1b[10;41H";
+				if (a.size() > 39)
+					a = a.substr(0,37) + "…";
+				cout << a;
+				break;
+
+			case 4:
+				cout << "\x1b[20;3H" << string(77, ' ');
+				cout << "\x1b[20;3H" << "Enter Book Publisher: ";
+				cin.ignore(1000, '\n');
+				getline(cin, p);
+				emptyBook.setPublisher(p);
+				cout << "\x1b[11;41H" << string(39, ' ');
+				cout << "\x1b[11;41H";
+				if (p.size() > 39)
+					p = p.substr(0,37) + "…";
+				cout << p;
+				break;
+
+			case 5:
+				cout << "\x1b[20;3H" << string(77, ' ');
+				cout << "\x1b[20;3H" << "Enter Book Date Added: ";
+				cin.ignore(1000, '\n');
+				getline(cin, d);
+				emptyBook.setDate(d);
+				cout << "\x1b[12;41H" << string(39, ' ');
+				cout << "\x1b[12;41H";
+				cout << d;
+				break;
+
+			case 6:
+				cout << "\x1b[20;3H" << string(77, ' ');
+				cout << "\x1b[20;3H" << "Enter Book Quantity: ";
+				cin >> q;
+				while (cin.fail() || q < 0)
+				{
+					cout << "\x1b[23;1H" << "INVALID INPUT";
+					cin.clear();
+					cin.ignore(1000, '\n');
+					cout << "\x1b[20;3H" << string(77, ' ');
+					cout << "\x1b[20;3H" << "Enter Book Quantity: ";
+					cin >> q;
+				}
+				cout << "\x1b[23;1H" << "\x1b[2K";
+				emptyBook.setQty(static_cast<unsigned int>(q));
+				cout << "\x1b[13;41H" << string(39, ' ');
+				cout << "\x1b[13;41H";
+				cout << setprecision(0) << q;
+				break;
+
+			case 7:
+				cout << "\x1b[20;3H" << string(77, ' ');
+				cout << "\x1b[20;3H" << "Enter Book Wholesale Price: ";
+				cin >> w;
+				while (cin.fail() || w < 0)
+				{
+					cout << "\x1b[23;1H" << "INVALID INPUT";
+					cin.clear();
+					cin.ignore(1000, '\n');
+					cout << "\x1b[20;3H" << string(77, ' ');
+					cout << "\x1b[20;3H" << "Enter Book Wholesale Price: ";
+					cin >> w;
+				}
+				cout << "\x1b[23;1H" << "\x1b[2K";
+				emptyBook.setWholesale(w);
+				cout << "\x1b[14;43H" << string(30, ' ');
+				cout << "\x1b[14;43H";
+				cout << setprecision(2) << w;
+				break;
+
+			case 8:
+				cout << "\x1b[20;3H" << string(77, ' ');
+				cout << "\x1b[20;3H" << "Enter Book Retail Price: ";
+				cin >> r;
+				while (cin.fail() || r < 0)
+				{
+					cout << "\x1b[23;1H" << "INVALID INPUT";
+					cin.clear();
+					cin.ignore(1000, '\n');
+					cout << "\x1b[20;3H" << string(77, ' ');
+					cout << "\x1b[20;3H" << "Enter Book Retail Price: ";
+					cin >> r;
+				}
+				cout << "\x1b[23;1H" << "\x1b[2K";
+				emptyBook.setRetail(r);
+				cout << setprecision(2);
+				cout << "\x1b[15;43H" << string(30, ' ');
+				cout << "\x1b[15;43H";
+				cout << r;
+				break;
+
+			case 9:
+				books.at(bookType::bookCount).bookFill(emptyBook);
+				emptyBook.bookEmpty();
+
+				bookType::bookCount++;
+				cout << "\x1b[20;3H" << string(77, ' ');
+				cout << "\x1b[5;70H" << string(10, ' ') << "\x1b[5;70H" << bookType::bookCount;
+				cout << "\x1b[8;41H" << string(39, ' ') << "\x1b[8;41H" << "EMPTY";
+				cout << "\x1b[9;41H" << string(39, ' ') << "\x1b[9;41H" << "EMPTY";
+				cout << "\x1b[10;41H" << string(39, ' ') << "\x1b[10;41H" << "EMPTY";
+				cout << "\x1b[11;41H" << string(39, ' ') << "\x1b[11;41H" << "EMPTY";
+				cout << "\x1b[12;41H" << string(39, ' ') << "\x1b[12;41H" << "EMPTY";
+				cout << "\x1b[13;41H" << string(39, ' ') << "\x1b[13;41H" << "0";
+				cout << "\x1b[14;43H" << string(37, ' ') << "\x1b[14;43H" << "0.00";
+				cout << "\x1b[15;43H" << string(37, ' ') << "\x1b[15;43H" << "0.00";
+				cout << "\x1b[20;3H" << "Book Successfully Added!";
+				cin.ignore(1000, '\n');
+				cin.get();
+				break;
+		}
+
+	} while (notDone);
+
+	cout << "\x1b[23;1H" << "Press enter to continue";
 
 	cin.ignore(1000, '\n');
 	cin.get();
-	cout << "\x1b[23;1H";
 	return;
 }
 
@@ -79,7 +255,7 @@ unsigned int bookType::bookCount = 0;
 //Setters//
 void bookType::bookAdd()
 {bookCount++;}
-void bookType::bookFill(bookType other)
+void bookType::bookFill(const bookType& other)
 {
 	title = other.getTitle();
 	isbn = other.getIsbn();
@@ -118,23 +294,23 @@ void bookType::setWholesale(float w)
 void bookType::setRetail(float r)
 {retail = r;}
 
-unsigned int bookType::getBookCount()
+unsigned int bookType::getBookCount() const
 {return bookCount;}
-string bookType::getTitle()
+string bookType::getTitle() const
 {return title;}
-string bookType::getIsbn()
+string bookType::getIsbn() const
 {return isbn;}
-string bookType::getAuthor()
+string bookType::getAuthor() const
 {return author;}
-string bookType::getPublisher()
+string bookType::getPublisher() const
 {return publisher;}
-string bookType::getDate()
+string bookType::getDate() const
 {return date;}
-unsigned int bookType::getQty()
+unsigned int bookType::getQty() const
 {return qty;}
-float bookType::getWholesale()
+float bookType::getWholesale() const
 {return wholesale;}
-float bookType::getRetail()
+float bookType::getRetail() const
 {return retail;}
 
 bookType::bookType(string t, string i, string a, string p, string d, unsigned int q, float w, float r)

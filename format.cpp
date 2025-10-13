@@ -40,7 +40,19 @@ void printMidDash()
 }
 
 
+bool isInt(const string& str)
+{
+	stringstream ss(str);
+	int value;
+	return (ss >> value) && ss.eof() && value >= 0;
+}
 
+bool isFloat(const string& str)
+{
+	stringstream ss(str);
+	float value;
+	return (ss >> value) && ss.eof() && value >= 0;
+}
 
 
 
