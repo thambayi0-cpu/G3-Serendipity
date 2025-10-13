@@ -251,7 +251,7 @@ void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive, vector<bookT
 
 //bookType//
 
-unsigned int bookType::bookCount = 0;
+unsigned int bookType::bookCount = 19;
 
 //Setters//
 void bookType::bookAdd()
@@ -316,7 +316,7 @@ float bookType::getRetail() const
 
 bookType::bookType(string t, string i, string a, string p, string d, unsigned int q, float w, float r)
 {
-        //cout << "Calling default constructor" << endl;
+		//cout << "Calling default constructor" << endl;
         title = t;
         isbn = i;
         author = a;
@@ -329,5 +329,5 @@ bookType::bookType(string t, string i, string a, string p, string d, unsigned in
 
 bookType::~bookType()
 {
-        //cout << "Destroying bookType instance" << endl;
+      //cout << "Destroying bookType instance" << endl;
 }
