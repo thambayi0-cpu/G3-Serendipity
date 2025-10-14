@@ -13,7 +13,7 @@
 
 #include "format.h"
 #include "invMenu.h"
-#include "lookUpBook.h"
+//#include "lookUpBook.h"
 #include "editBook.h"
 #include "deleteBook.h"
 
@@ -145,18 +145,18 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 			// Look Up Book
 			case '1':
 				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				//cout << pressEnterStr;
+				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 				keepLookUpBookMenuActive = true;
-				lookUpBook(keepInvMenuActive, keepLookUpBookMenuActive);
+				lookUpBook(keepInvMenuActive, keepLookUpBookMenuActive, books);
 				break;
 
 			// Add Book
 			case '2':
 				cout << GREEN << inputPrintStr << choice << "." << RESET;
 				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 				keepAddBookMenuActive = true;
 				addBook(keepInvMenuActive, keepAddBookMenuActive, books);
@@ -165,8 +165,8 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 			// Edit Book
 			case '3':
 				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				//cout << pressEnterStr;
+				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 				keepEditBookMenuActive = true;
 				editBook(keepInvMenuActive, keepEditBookMenuActive);
@@ -175,8 +175,8 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 			// Delete Book
 			case '4':
 				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				//cout << pressEnterStr;
+				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 				keepDeleteBookMenuActive = true;
 				deleteBook(keepInvMenuActive, keepDeleteBookMenuActive);
@@ -185,8 +185,8 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 			// Exit Return
 			case '5':
 				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				//cout << pressEnterStr;
+				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				keepInvMenuActive = false;
 				break;
 

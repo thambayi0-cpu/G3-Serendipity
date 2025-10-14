@@ -9,7 +9,7 @@
 
 void invMenu(bool &keepInvMenuActive, std::vector<bookType>& books);
 
-void lookUpBook(bool &keepInvMenuActive, bool &keeplookUpBookMenuActive);
+void lookUpBook(bool &keepInvMenuActive, bool &keeplookUpBookMenuActive, std::vector<bookType>& books);
 
 void addBook(bool &keepInvMenuActive, bool &keepAddBookMenuActive, std::vector<bookType>& books);
 

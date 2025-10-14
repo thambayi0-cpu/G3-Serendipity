@@ -79,5 +79,7 @@ string PrintInvMenu();
 
 string PrintReportsMenu();
 
+string PrintLookUpBookMenu();
+
 
 #endif

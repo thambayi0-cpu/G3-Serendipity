@@ -11,10 +11,122 @@
 ****************************************************************************/
 
 #include "format.h"
-#include "lookUpBook.h"
+//#include "lookUpBook.h"
+#include <string>
+#include <iostream>
+#include <iomanip>
+#include <vector>
+#include "bookType.h"
+using namespace std;
 
-void lookUpBook (bool &keepInvMenuActive, bool &keepLookUpBookMenuActive)
+void lookUpBook (bool &keepInvMenuActive, bool &keepLookUpBookMenuActive, vector<bookType>& books)
 {
-	
+	const string CLEAR_SCREEN = "\x1b[H\x1b[2J";
+	string headingString;
+	string searchString;
+	string menuString;
+	string lowerSearchString;
+	vector <string> titles;
+	string titleEmpty;
+	int    indexBookInfo;
+
+	headingString = OutputClassHeading();
+	menuString    = PrintLookUpBookMenu();
+
+
+	cout << CLEAR_SCREEN;
+	cout << headingString;
+	cout << menuString;
+
+		for (int i = 0; i < int(books.size()); i++)
+		{
+			for (int j = 0; j < int(books[i].getTitle().length()); j++)
+			{
+				titleEmpty.push_back(char(tolower(books[i].getTitle()[j])));
+			}
+			titles.push_back(titleEmpty);
+			titleEmpty.clear();
+			//cout << endl << titles[i] << endl;
+
+		}
+			cin.clear();
+
+	do
+	{
+		//cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "\x1b[20;35H";
+		getline(cin, searchString);
+		cout << "\x1b[27;0H";
+
+
+
+
+		if (!searchString.empty() && (searchString[0] == '0' || searchString[0] == '1'))
+		{
+			for (int i = 0; i < int(books.size()); i++)
+			{
+				if (books[i].getIsbn() == searchString)
+					cout << "<" << i + 1 << "> " << books[i].getTitle() << endl << endl;
+			}
+		}
+		 if(!searchString.empty())
+		{
+			for (int i = 0; i < int(searchString.length()); i++)
+			{
+				lowerSearchString.push_back(char(tolower(searchString[i])));
+			}
+
+			for (int i = 0; i < int(books.size()); i++)
+			{
+				if (titles.at(i).find(lowerSearchString) != string::npos)
+				{
+					cout << " <" << i + 1 << "> " << books[i].getTitle()
+                                             // << " - " 
+														   //<< books[i].getAuthor() << " - " 
+														//	<< books[i].getIsbn() << " - " << "Qty: "
+														//	<< books[i].getQty()
+														//	<< books[i].getRetail() 
+																							<< endl;
+				}
+			}
+		}
+
+		lowerSearchString.clear();
+
+
+
+	if(!searchString.empty())
+	{
+		do {
+		cout << endl << endl << "Enter index for book info or -1 to exit: ";
+		cin  >> indexBookInfo;
+		if(indexBookInfo == -1)
+		{
+			keepLookUpBookMenuActive = false;
+		}
+		else
+		{
+			int j = indexBookInfo - 1;
+			cout << endl;
+			cout << "Title:      "  << books[j].getTitle() << endl;
+			cout << "ISBN:       "  << books[j].getIsbn() << endl;
+			cout << "Author:     "  << books[j].getAuthor() << endl;
+			cout << "Publisher:  "  << books[j].getPublisher() << endl;
+			cout << "Date Added: "  << books[j].getDate() << endl;
+			cout << "Qty:        "  << books[j].getQty() << endl;
+			cout << "Wholesale:  "  << books[j].getWholesale() << endl;
+			cout << "Retail:     "  << books[j].getRetail() << endl;
+
+		}
+		} while (indexBookInfo != -1);
+	}
+
+	if(searchString.empty())
+	{
+		keepLookUpBookMenuActive = false;
+	}
+
+	} while(keepLookUpBookMenuActive);
 }
 
+//No time left due to integration issues with addBook

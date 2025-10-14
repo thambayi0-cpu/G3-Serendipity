@@ -175,8 +175,8 @@ int main()
 			case '1':
 				cout << GREEN << inputPrintStr << choice << "." << RESET;
 
-				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				//cout << pressEnterStr;
+				//cin.ignore(numeric_limits<streamsize>::max());
 
 				cashier();
 
@@ -186,8 +186,8 @@ int main()
 			case '2':
 				cout << GREEN << inputPrintStr << choice << "." << RESET;
 
-				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				//cout << pressEnterStr;
+				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 				keepInvMenuActive = true;
 				invMenu(keepInvMenuActive, books);
@@ -197,8 +197,8 @@ int main()
 			case '3':
 				cout << GREEN << inputPrintStr << choice << "." << RESET;
 
-				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				//cout << pressEnterStr;
+				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 				keepReportsMenuActive = true;
 				reports(keepReportsMenuActive);
@@ -208,8 +208,8 @@ int main()
 			case '4':
 				cout << GREEN << inputPrintStr << choice << "." << RESET;
 
-				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				//cout << pressEnterStr;
+				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 				keepActive = false;
 				break;

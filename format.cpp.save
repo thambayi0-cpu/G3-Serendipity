@@ -602,14 +602,6 @@ string PrintReportsMenu()
 }
 
 
-
-
-
-
-
-
-
-
 string PrintLookUpBookMenu()
 
 {
@@ -623,9 +615,16 @@ string PrintLookUpBookMenu()
  	const string BOTTOM_LEFT_BORDER  = "\xE2\x94\x94";
  	const string BOTTOM_RIGHT_BORDER = "\xE2\x94\x98";
  	const string COMPANY_NAME        = "Serendipity Booksellers";
- 	const string TITLE               = "Look Up a Book";
-	const string INPUT_PROMPT        = "Search title or ISBN: ";
-	const string INPUT_PROMPT_RANGE  = "Press ENTER to exit";
+ 	const string TITLE               = "Reports";
+ 	const string SELECTION_ONE       = "1. Inventory Listing";
+ 	const string SELECTION_TWO       = "2. Inventory Wholesale Value";
+ 	const string SELECTION_THREE     = "3. Inventory Retail Value";
+ 	const string SELECTION_FOUR      = "4. Listing by Quanitity";
+	const string SELECTION_FIVE      = "5. Listing by Cost";
+	const string SELECTION_SIX       = "6. Listing by Age";
+	const string SELECTION_SEVEN     = "7. Return to Main Menu";
+	const string INPUT_PROMPT        = "Enter Your Choice: ";
+ 	const string INPUT_PROMPT_RANGE  = "Please enter a number in the range 1 - 7.";
 	/***************************************************************************
 	* VARIABLES
 	****************************************************************************/
@@ -653,17 +652,31 @@ string PrintLookUpBookMenu()
    	 << endl
 	    << HORIZONTAL_BORDER << setfill(' ') << setw(20) << " "   << COMPANY_NAME       << setfill(' ') << setw(21) << right << HORIZONTAL_BORDER
    	 << endl
-	    << HORIZONTAL_BORDER << setfill(' ') << setw(25) << " "   << TITLE              << setfill(' ') << setw(25) << right << HORIZONTAL_BORDER
+	    << HORIZONTAL_BORDER << setfill(' ') << setw(29) << " "   << TITLE              << setfill(' ') << setw(28) << right << HORIZONTAL_BORDER
 		 << endl
 		 << HORIZONTAL_BORDER << setfill(' ') << setw(64) << right << HORIZONTAL_BORDER
 		 << endl
-		 << HORIZONTAL_BORDER << setfill(' ') << setw(10) << " "   << INPUT_PROMPT       << setfill(' ') << setw(32) << right << HORIZONTAL_BORDER
+		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " "   << SELECTION_ONE      << setfill(' ') << setw(27) << right << HORIZONTAL_BORDER
+	 	 << endl
+		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " "   << SELECTION_TWO      << setfill(' ') << setw(19) << right << HORIZONTAL_BORDER
+		 << endl
+		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " "   << SELECTION_THREE    << setfill(' ') << setw(22) << right << HORIZONTAL_BORDER
+		 << endl
+		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " "   << SELECTION_FOUR     << setfill(' ') << setw(24) << right << HORIZONTAL_BORDER
+		 << endl
+		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " "   << SELECTION_FIVE     << setfill(' ') << setw(29) << right << HORIZONTAL_BORDER
+		 << endl
+	    << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " "   << SELECTION_SIX      << setfill(' ') << setw(30) << right << HORIZONTAL_BORDER
+		 << endl
+		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " "   << SELECTION_SEVEN    << setfill(' ') << setw(25) << right << HORIZONTAL_BORDER
 		 << endl
 		 << HORIZONTAL_BORDER << setfill(' ') << setw(64) << right << HORIZONTAL_BORDER
 		 << endl
+		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " "   << INPUT_PROMPT       << setfill(' ') << setw(28) << right << HORIZONTAL_BORDER
+		 << endl
 		 << HORIZONTAL_BORDER << setfill(' ') << setw(64) << right << HORIZONTAL_BORDER
 		 << endl
-		 << HORIZONTAL_BORDER << setfill(' ') << setw(20) << " "   << INPUT_PROMPT_RANGE << setfill(' ') << setw(25)  << right << HORIZONTAL_BORDER
+		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " "   << INPUT_PROMPT_RANGE << setfill(' ') << setw(6)  << right << HORIZONTAL_BORDER
 		 << endl
 		 << HORIZONTAL_BORDER << setfill(' ') << setw(64) << right << HORIZONTAL_BORDER
 		 << endl;
