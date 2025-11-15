@@ -44,7 +44,7 @@ void addBook (vector<bookType>& books)
 		cout << "\x1b[21;1H";
 		printBottomDash();
 		cout << "\x1b[J";
-		if (cin.fail() || choice < 0)
+		if (cin.fail() || choice < 0 || choice > 9)
 		{
 			cin.clear();
 			cin.ignore(1000, '\n');

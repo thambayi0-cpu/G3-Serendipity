@@ -19,8 +19,7 @@ using namespace std;
 unsigned int bookType::bookCount = 0;
 
 //Setters//
-void bookType::bookAdd()
-{bookCount++;}
+
 void bookType::bookFill(const bookType& other)
 {
 	title = other.getTitle();
@@ -32,6 +31,7 @@ void bookType::bookFill(const bookType& other)
 	wholesale = other.getWholesale();
 	retail = other.getRetail();
 }
+
 void bookType::bookEmpty()
 {
 	title = "EMPTY";
@@ -43,6 +43,7 @@ void bookType::bookEmpty()
 	wholesale = 0.0;
 	retail = 0.0;
 }
+
 void bookType::setTitle(string t)
 {title = t;}
 void bookType::setIsbn(string i)
@@ -60,8 +61,6 @@ void bookType::setWholesale(float w)
 void bookType::setRetail(float r)
 {retail = r;}
 
-unsigned int bookType::getBookCount() const
-{return bookCount;}
 string bookType::getTitle() const
 {return title;}
 string bookType::getIsbn() const

@@ -26,10 +26,9 @@ class bookType
 		static unsigned int bookCount;
 
 		//Setters//
-		void bookAdd();
 
-		void bookFill(const bookType& other);
-		void bookEmpty();
+		void bookFill(const bookType& other); //Copies the contents of one book to another
+		void bookEmpty(); //Resets the variables of a book to default values
 
 		void setTitle(std::string t);
 		void setIsbn(std::string i);
@@ -41,7 +40,6 @@ class bookType
 		void setRetail(float r);
 
 		//Accessors//
-		unsigned int getBookCount() const;
 
 		std::string getTitle() const;
 		std::string getIsbn() const;
