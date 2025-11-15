@@ -29,6 +29,11 @@ void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive, vector<bookT
 	float w;
 	float r;
 
+	if (bookType::bookCount >= 20)
+	{
+		return;
+	}
+
 	printAddBookMenu(books, emptyBook);
 
 	do

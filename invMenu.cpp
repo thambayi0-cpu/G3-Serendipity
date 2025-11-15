@@ -62,6 +62,7 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 	ostringstream  pressEnter;                 // PROC - cursor position and press enter prompt stores in pressEnterStr
 	string         pressEnterStr;              // OUT  - press enter prompt
 
+	bool calledBack = false;
 
 	// INITIALIZATIONS
 	headingString       = OutputClassHeading();
@@ -96,24 +97,27 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 
 
 	// INPUT - Inventory Menu Input Prompt for "Choice"
+	cout << CLEAR_SCREEN;
+
+	// OUTPUT HEADING - Class heading output
+	cout << headingString;
+
+	// INPUT - Inventory Menu Display
+	cout << printInvMenuString;
+
+
 	while (keepInvMenuActive)
 	{
-		// Clear Screen
-		cout << CLEAR_SCREEN;
-
-		// OUTPUT HEADING - Class heading output
-		cout << headingString;
-
-
-		// INPUT - Inventory Menu Display
-		cout << printInvMenuString;
-
 		invalidInputBool = true;
+
+		if (calledBack)
+			cout << CLEAR_SCREEN << headingString << printInvMenuString;
 
 		choice = 0;
 		do
 		{
 			cout << inputPromptStr;
+
 			getline(cin, choiceString);
 
 			// Cleans input buffer
@@ -131,10 +135,19 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 			{
 				choice = choiceString[0];
 				invalidInputBool = false;
+				if (calledBack)
+				{
+					calledBack = false;
+				}
 			}
 			else
 			{
-				cout << CLEAR_SCREEN << headingString << printInvMenuString << inputPromptStr << RED << invalidInputStr << RESET;
+				if (!calledBack) //Check to see if it's come back from another menu
+					cout << CLEAR_SCREEN << headingString << printInvMenuString << inputPromptStr << RED << invalidInputStr << RESET;
+				else
+				{
+					calledBack = false;
+				}
 			}
 
 		} while (invalidInputBool);
@@ -144,42 +157,87 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 		{
 			// Look Up Book
 			case '1':
-				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				//cout << pressEnterStr;
-				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				if (bookType::bookCount == 0)
+				{
+					cout << CLEAR_SCREEN << headingString << printInvMenuString << inputPromptStr
+					<< RED << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight  << "H" << setfill(' ')
+					<< setw(INPUT_PRINT_FILL) << " " << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H"
+					<< "Inventory empty." << RESET;
+				}
+				else
+				{
+					cout << GREEN << inputPrintStr << choice << "." << RESET;
+					//cout << pressEnterStr;
+					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				keepLookUpBookMenuActive = true;
-				lookUpBook(keepInvMenuActive, keepLookUpBookMenuActive, books);
+					keepLookUpBookMenuActive = true;
+					lookUpBook(keepInvMenuActive, keepLookUpBookMenuActive, books);
+					//calledBack = true;
+					cout << CLEAR_SCREEN << headingString << printInvMenuString;
+				}
 				break;
 
 			// Add Book
 			case '2':
-				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				cout << pressEnterStr;
-				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				if (bookType::bookCount >= 20)
+				{
+					cout << CLEAR_SCREEN << headingString << printInvMenuString << inputPromptStr
+					<< RED << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H" << setfill(' ')
+					<< setw(INPUT_PRINT_FILL) << " " << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H"
+					<< "Inventory full. Cannot add more books." << RESET;
+				}
+				else
+				{
+					cout << GREEN << inputPrintStr << choice << "." << RESET;
+					cout << pressEnterStr;
+					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				keepAddBookMenuActive = true;
-				addBook(keepInvMenuActive, keepAddBookMenuActive, books);
+					keepAddBookMenuActive = true;
+					addBook(keepInvMenuActive, keepAddBookMenuActive, books);
+					calledBack = true;
+				}
 				break;
 
 			// Edit Book
 			case '3':
-				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				//cout << pressEnterStr;
-				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				if (bookType::bookCount == 0)
+				{
+					cout << CLEAR_SCREEN << headingString << printInvMenuString << inputPromptStr
+					<< RED << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight  << "H" << setfill(' ')
+					<< setw(INPUT_PRINT_FILL) << " "<< "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H"
+					<< "Inventory empty." << RESET;
+				}
+				else
+				{
+					cout << GREEN << inputPrintStr << choice << "." << RESET;
+					//cout << pressEnterStr;
+					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				keepEditBookMenuActive = true;
-				editBook(keepInvMenuActive, keepEditBookMenuActive);
+					keepEditBookMenuActive = true;
+					editBook(keepInvMenuActive, keepEditBookMenuActive);
+					calledBack = true;
+				}
 				break;
 
 			// Delete Book
 			case '4':
-				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				//cout << pressEnterStr;
-				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				if (bookType::bookCount == 0)
+				{
+					cout << CLEAR_SCREEN << headingString << printInvMenuString << inputPromptStr
+					<< RED << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight  << "H" << setfill(' ')
+					<< setw(INPUT_PRINT_FILL) << " " << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H"
+					<< "Inventory empty." << RESET;
+				}
+				else
+				{
+					cout << GREEN << inputPrintStr << choice << "." << RESET;
+					//cout << pressEnterStr;
+					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				keepDeleteBookMenuActive = true;
-				deleteBook(keepInvMenuActive, keepDeleteBookMenuActive);
+					keepDeleteBookMenuActive = true;
+					deleteBook(keepInvMenuActive, keepDeleteBookMenuActive);
+					calledBack = true;
+				}
 				break;
 
 			// Exit Return
@@ -188,11 +246,6 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 				//cout << pressEnterStr;
 				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				keepInvMenuActive = false;
-				break;
-
-			// Error message
-			default:
-				cout << RED << invalidInputStr << RESET;
 				break;
 		}
 
