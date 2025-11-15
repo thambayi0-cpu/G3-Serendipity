@@ -19,7 +19,7 @@
 #include "bookType.h"
 using namespace std;
 
-void lookUpBook (bool &keepInvMenuActive, bool &keepLookUpBookMenuActive, vector<bookType>& books)
+int lookUpBook (bool &keepInvMenuActive, bool &keepLookUpBookMenuActive, vector<bookType>& books)
 {
 	const string CLEAR_SCREEN = "\x1b[H\x1b[2J";
 	string headingString;
@@ -66,7 +66,7 @@ void lookUpBook (bool &keepInvMenuActive, bool &keepLookUpBookMenuActive, vector
 
 
 	if (searchString.empty())
-		return;
+		return -1;
 	else
 	{
 		for (char& c : searchString)
@@ -86,7 +86,7 @@ void lookUpBook (bool &keepInvMenuActive, bool &keepLookUpBookMenuActive, vector
 			cout << "No matches found!" << endl
 				<< "Press enter to return to menu";
 			cin.get();
-			return;
+			return -1;
 		}
 	}
 
@@ -101,7 +101,7 @@ void lookUpBook (bool &keepInvMenuActive, bool &keepLookUpBookMenuActive, vector
 		cin >> bookIndex;
 	}
 	if (bookIndex == -1)
-		return;
+		return -1;
 	else
 	{
 		cout << CLEAR_SCREEN;
@@ -117,7 +117,7 @@ void lookUpBook (bool &keepInvMenuActive, bool &keepLookUpBookMenuActive, vector
 		cout << "\nPress enter to return";
 		cin.ignore(1000, '\n');
 		cin.get();
-		return;
+		return bookIndex;
 	}
 
 }
