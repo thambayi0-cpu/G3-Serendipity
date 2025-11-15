@@ -11,9 +11,8 @@
 ****************************************************************************/
 
 #include "format.h"
-#include "deleteBook.h"
 
-void deleteBook (bool &keepInvMenuActive, bool &keepDeleteBookMenuActive)
+void deleteBook (vector<bookType>& books)
 {
 	
 }

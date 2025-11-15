@@ -12,9 +12,8 @@
 ****************************************************************************/
 
 #include "format.h"
-#include "repCost.h"
 
-void repCost (bool &keepReportsMenuActive, bool &keepRepCosttMenuActive)
+void repCost()
 {
 	
 }

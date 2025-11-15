@@ -89,6 +89,50 @@ void printAddBookMenu(const vector<bookType>& books, const bookType& emptyBook)
 	return;
 }
 
+void printEditBookMenu(const bookType& emptyBook)
+{
+	const int ENTER_WIDTH = 39;
+
+	cout << "\033[H\033[2J"; //Clear screen
+
+	printTopDash();
+
+   cout << "│                           SERENDIPITY BOOKSELLERS                            │" << endl;
+   cout << "│                                  EDIT BOOK                                   │" << endl;
+
+   printBorder();
+
+   cout << setw(ENTER_WIDTH) << "│ <1>  Edit Book Title" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << (emptyBook.getTitle().size() > 39 ? emptyBook.getTitle().substr(0, 37) + "… " : emptyBook.getTitle()) << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <2>  Edit ISBN" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << (emptyBook.getIsbn().size() > 13 ? emptyBook.getIsbn().substr(0, 13) : emptyBook.getIsbn()) << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <3>  Edit Author" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << (emptyBook.getAuthor().size() > 39 ? emptyBook.getAuthor().substr(0, 37) + "…" : emptyBook.getAuthor()) << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <4>  Edit Publisher" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << (emptyBook.getPublisher().size() > 39 ? emptyBook.getPublisher().substr(0, 37) + "…" : emptyBook.getPublisher()) << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <5>  Edit Date Added  (mm/dd/yyyy)" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << (emptyBook.getDate().size() > 10 ? emptyBook.getDate().substr(0, 10) : emptyBook.getDate()) << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <6>  Edit Quantity on Hand" << setw(3) << ">" << setw(TOTAL_WIDTH - ENTER_WIDTH - 3) << fixed << setprecision(0) << emptyBook.getQty() << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <7>  Edit Wholesale Cost" << setw(3) << ">" << "$ " << setw(TOTAL_WIDTH - ENTER_WIDTH - 5) << setprecision(2) << emptyBook.getWholesale() << "│" << endl;
+
+   cout << setw(ENTER_WIDTH) << "│ <8>  Edit Retail Price" << setw(3) << ">" << "$ " << setw(TOTAL_WIDTH - ENTER_WIDTH - 5) << setprecision(2) << emptyBook.getRetail() << "│" << endl;
+
+   cout << setw(TOTAL_WIDTH) << "│ <9>  Confirm Edits" << "│" << endl;
+
+   cout << setw(TOTAL_WIDTH) << "│ <0>  Return to Inventory Menu" << "│" << endl;
+
+   printBorder();
+
+	printMidDash();
+
+   cout << setw(TOTAL_WIDTH) << "│ Choice: " <<"│" << endl;
+
+   printBottomDash();
+
+	return;
+}
+
 
 /******************************************************************************
 * FUNCTION OutputClassHeading

@@ -1,3 +1,4 @@
+
 /***************************************************************************
 * PROGRAMMED BY : Ahmer Yasin & Thokozile Hambayi
 * ID            : A00349012   & 127485
@@ -11,9 +12,8 @@
 ****************************************************************************/
 
 #include "format.h"
-#include "repRetail.h"
 
-void repRetail (bool &keepReportsMenuActive, bool &keepRepRetailtMenuActive)
+void repRetail()
 {
 	
 }

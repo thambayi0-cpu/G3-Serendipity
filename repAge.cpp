@@ -11,9 +11,8 @@
 ****************************************************************************/
 
 #include "format.h"
-#include "repAge.h"
 
-void repAge (bool &keepReportsMenuActive, bool &keepRepAgeMenuActive)
+void repAge()
 {
 	
 }

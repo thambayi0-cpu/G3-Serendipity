@@ -5,17 +5,17 @@
 
 #include "bookType.h"
 
-void reports (bool &keepReportsMenuActive);
+void reports();
 
-void repListing  (bool &keepReportsMenuActive, bool &keepRepListingMenuActive);
+void repListing();
 
-void repWholesale  (bool &keepReportsMenuActive, bool &keepRepWholesaleMenuActive);
+void repWholesale();
 
-void repRetail  (bool &keepReportsMenuActive, bool &keepRepRetailMenuActive);
+void repRetail();
 
-void repQty  (bool &keepReportsMenuActive, bool &keepRepQtyMenuActive);
+void repQty();
 
-void repCost  (bool &keepReportsMenuActive, bool &keepRepCostMenuActive);
+void repCost();
 
-void repAge  (bool &keepReportsMenuActive, bool &keepRepAgeMenuActive);
+void repAge();
 #endif

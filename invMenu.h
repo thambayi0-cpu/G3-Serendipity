@@ -7,15 +7,15 @@
 #include <vector>
 #include "bookType.h"
 
-void invMenu(bool &keepInvMenuActive, std::vector<bookType>& books);
+void invMenu(std::vector<bookType>& books);
 
-void lookUpBook(bool &keepInvMenuActive, bool &keeplookUpBookMenuActive, std::vector<bookType>& books);
+int lookUpBook(const std::vector<bookType>& books);
 
-void addBook(bool &keepInvMenuActive, bool &keepAddBookMenuActive, std::vector<bookType>& books);
+void addBook(std::vector<bookType>& books);
 
-void editBook(bool &keepInvMenuActive, bool &keepeditBookMenuActive);
+void editBook(std::vector<bookType>& books);
 
-void deleteBook(bool &keepInvMenuActive, bool &keepdeleteBookMenuActive);
+void deleteBook(std::vector<bookType>& books);
 
 
 #endif

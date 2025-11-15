@@ -14,7 +14,7 @@
 #include "reports.h"
 
 
-void reports (bool &keepReportsMenuActive)
+void reports()
 {
 	// Constants
 	const string INPUT_PROMPT     = "Enter Your Choice: ";
@@ -36,13 +36,6 @@ void reports (bool &keepReportsMenuActive)
 	string			choiceString;					 // IN   - input
 
 	bool           invalidInputBool;				 // IN   - error check bool
-
-	bool           keepRepListingMenuActive;   // PROC - bool for repListing() while loop
-	bool           keepRepWholesaleMenuActive; // PROC - bool for repWholesale() while loop
-	bool           keepRepRetailMenuActive;    // PROC - bool for repRetail() while loop
-	bool           keepRepQtyMenuActive;       // PROC - bool for repQty() while loop
-	bool           keepRepCostMenuActive;      // PROC - bool for repCost() while loop
-	bool           keepRepAgeMenuActive;       // PROC - bool for repAge() while loop
 
 	short          inputPrintHeight;				 // FORM - cursor position
 	short          inputPrintRow;					 // FORM - cursor position
@@ -89,14 +82,14 @@ void reports (bool &keepReportsMenuActive)
 	pressEnter         << "\x1b[34;14H" << "\x1b[5m" << "\x1b[1m" << "\x1b[37m" << "\x1b[44m" << "    Press  E N T E R  to continue    " << RESET;
 	pressEnterStr      = pressEnter.str();
 
-
+	bool done = false;
 
 
 
 
 
 	// INPUT - Inventory Menu Input Prompt for "Choice"
-	while (keepReportsMenuActive)
+	while (!done)
 	{
 		// Clear Screen
 		cout << CLEAR_SCREEN;
@@ -151,8 +144,7 @@ void reports (bool &keepReportsMenuActive)
 				cout << pressEnterStr;
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				keepRepListingMenuActive = true;
-				repListing(keepReportsMenuActive, keepRepListingMenuActive);
+				repListing();
 				break;
 
 			// RepWholesale
@@ -161,8 +153,7 @@ void reports (bool &keepReportsMenuActive)
 				cout << pressEnterStr;
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				keepRepWholesaleMenuActive = true;
-				repWholesale(keepReportsMenuActive, keepRepWholesaleMenuActive);
+				repWholesale();
 				break;
 
 			// RepRetail
@@ -171,8 +162,7 @@ void reports (bool &keepReportsMenuActive)
 				cout << pressEnterStr;
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				keepRepRetailMenuActive = true;
-				repRetail(keepReportsMenuActive, keepRepRetailMenuActive);
+				repRetail();
 				break;
 
 			// RepQty
@@ -181,8 +171,7 @@ void reports (bool &keepReportsMenuActive)
 				cout << pressEnterStr;
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				keepRepQtyMenuActive = true;
-				repQty(keepReportsMenuActive, keepRepQtyMenuActive);
+				repQty();
 				break;
 
 			// RepCost
@@ -191,8 +180,7 @@ void reports (bool &keepReportsMenuActive)
 				cout << pressEnterStr;;
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				keepRepCostMenuActive = true;
-				repCost(keepReportsMenuActive, keepRepCostMenuActive);
+				repCost();
 				break;
 
 			// RepAge
@@ -201,8 +189,7 @@ void reports (bool &keepReportsMenuActive)
 				cout << pressEnterStr;
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				keepRepAgeMenuActive = true;
-				repAge(keepReportsMenuActive, keepRepAgeMenuActive);
+				repAge();
 				break;
 
 			// Exit return to main menu
@@ -210,7 +197,7 @@ void reports (bool &keepReportsMenuActive)
 				cout << GREEN << inputPrintStr << choice << "." << RESET;
 				cout << pressEnterStr;
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				keepReportsMenuActive = false;
+				done = true;
 				break;
 
 			// Error message
@@ -220,7 +207,7 @@ void reports (bool &keepReportsMenuActive)
 		}
 
 	}
-
+	return;
 
 }
 

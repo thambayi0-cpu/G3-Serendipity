@@ -11,9 +11,8 @@
 ****************************************************************************/
 
 #include "format.h"
-#include "repListing.h"
 
-void repListing (bool &keepReportsMenuActive, bool &keepRepListingtMenuActive)
+void repListing()
 {
 	
 }

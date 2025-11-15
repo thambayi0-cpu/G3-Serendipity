@@ -11,9 +11,8 @@
 ****************************************************************************/
 
 #include "format.h"
-#include "repWholesale.h"
 
-void repWholesale (bool &keepReportsMenuActive, bool &keepRepWholesaletMenuActive)
+void repWholesale()
 {
 	
 }

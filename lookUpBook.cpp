@@ -11,7 +11,6 @@
 ****************************************************************************/
 
 #include "format.h"
-//#include "lookUpBook.h"
 #include <string>
 #include <iostream>
 #include <iomanip>
@@ -19,7 +18,7 @@
 #include "bookType.h"
 using namespace std;
 
-int lookUpBook (bool &keepInvMenuActive, bool &keepLookUpBookMenuActive, vector<bookType>& books)
+int lookUpBook (const vector<bookType>& books)
 {
 	const string CLEAR_SCREEN = "\x1b[H\x1b[2J";
 	string headingString;
@@ -122,4 +121,3 @@ int lookUpBook (bool &keepInvMenuActive, bool &keepLookUpBookMenuActive, vector<
 
 }
 
-//No time left due to integration issues with addBook

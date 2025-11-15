@@ -42,8 +42,6 @@ int main()
 	string			choiceString;               // IN   - input
 	bool           invalidInputBool;           // IN   - error check bool
 	bool				keepActive;                 // PROC - bool for do while main menu
-	bool				keepInvMenuActive;          // PROC - bool for while invMenu()
-	bool				keepReportsMenuActive;      // PROC - bool for while reports()
 
 	short          inputPrintHeight;           // FORM - cursor position
 	short          inputPrintRow;              // FORM - cursor position
@@ -73,8 +71,6 @@ int main()
 	printInvMenuString    = PrintInvMenu();
 
 	keepActive            = true;
-	keepInvMenuActive     = false;
-	keepReportsMenuActive = false;
 
 	inputPrintHeight      = 19;
 	inputPrintRow         = 27;
@@ -189,8 +185,7 @@ int main()
 				//cout << pressEnterStr;
 				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				keepInvMenuActive = true;
-				invMenu(keepInvMenuActive, books);
+				invMenu(books);
 				break;
 
 			// Reports Menu
@@ -200,8 +195,7 @@ int main()
 				//cout << pressEnterStr;
 				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				keepReportsMenuActive = true;
-				reports(keepReportsMenuActive);
+				reports();
 				break;
 
 			// Exit

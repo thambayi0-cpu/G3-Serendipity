@@ -14,7 +14,7 @@
 
 using namespace std;
 
-void addBook (bool &keepInvMenuActive, bool &keepAddBookMenuActive, vector<bookType>& books)
+void addBook (vector<bookType>& books)
 {
 	bool notDone = true;
 	int choice;

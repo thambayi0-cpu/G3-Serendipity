@@ -11,10 +11,33 @@
 ****************************************************************************/
 
 #include "format.h"
-#include "editBook.h"
+#include "invMenu.h"
 
-void editBook (bool &keepInvMenuActive, bool &keepEditBookMenuActive)
+void editBook (vector<bookType>& books)
 {
-	
+//	bool notDone = true;
+//	int choice;
+	int index = lookUpBook(books);
+
+	if (index == -1)
+		return;
+
+	bookType displayBook(books.at(index));
+
+	/*string t;
+	string i;
+	string a;
+	string p;
+	string d;
+	int q;
+	float w;
+	float r;*/
+
+	printEditBookMenu(displayBook);
+
+	cin.get();
+
+	return;
+
 }
 

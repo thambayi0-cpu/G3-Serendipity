@@ -13,11 +13,8 @@
 
 #include "format.h"
 #include "invMenu.h"
-//#include "lookUpBook.h"
-#include "editBook.h"
-#include "deleteBook.h"
 
-void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
+void invMenu (vector<bookType>& books)
 {
 	// Constants
 	const string INPUT_PROMPT     = "Enter Your Choice: ";
@@ -39,11 +36,6 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 	string			choiceString;     			 // IN   - input
 	bool           invalidInputBool;           // IN   - error check bool
 
-	bool           keepLookUpBookMenuActive;   // PROC - look up book while loop
-	bool           keepAddBookMenuActive;      // PROC - add book while loop
-	bool           keepEditBookMenuActive;     // PROC - edit book while loop
-	bool           keepDeleteBookMenuActive;   // PROC - delete book while loop
-
 	short          inputPrintHeight;           // FORM - cursor position
 	short          inputPrintRow;              // FORM - cursor position
 
@@ -63,6 +55,7 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 	string         pressEnterStr;              // OUT  - press enter prompt
 
 	bool calledBack = false;
+	bool done = false;
 
 	// INITIALIZATIONS
 	headingString       = OutputClassHeading();
@@ -106,7 +99,7 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 	cout << printInvMenuString;
 
 
-	while (keepInvMenuActive)
+	while (!done)
 	{
 		invalidInputBool = true;
 
@@ -170,8 +163,7 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 					//cout << pressEnterStr;
 					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-					keepLookUpBookMenuActive = true;
-					lookUpBook(keepInvMenuActive, keepLookUpBookMenuActive, books);
+					lookUpBook(books);
 					//calledBack = true;
 					cout << CLEAR_SCREEN << headingString << printInvMenuString;
 				}
@@ -191,9 +183,7 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 					cout << GREEN << inputPrintStr << choice << "." << RESET;
 					cout << pressEnterStr;
 					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-					keepAddBookMenuActive = true;
-					addBook(keepInvMenuActive, keepAddBookMenuActive, books);
+					addBook(books);
 					calledBack = true;
 				}
 				break;
@@ -213,8 +203,7 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 					//cout << pressEnterStr;
 					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-					keepEditBookMenuActive = true;
-					editBook(keepInvMenuActive, keepEditBookMenuActive);
+					editBook(books);
 					calledBack = true;
 				}
 				break;
@@ -234,8 +223,7 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 					//cout << pressEnterStr;
 					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-					keepDeleteBookMenuActive = true;
-					deleteBook(keepInvMenuActive, keepDeleteBookMenuActive);
+					deleteBook(books);
 					calledBack = true;
 				}
 				break;
@@ -245,11 +233,13 @@ void invMenu (bool &keepInvMenuActive, vector<bookType>& books)
 				cout << GREEN << inputPrintStr << choice << "." << RESET;
 				//cout << pressEnterStr;
 				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				keepInvMenuActive = false;
+				done = true;
 				break;
 		}
 
 	}
+
+	return;
 
 }
 

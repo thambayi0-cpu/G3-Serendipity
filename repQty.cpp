@@ -11,9 +11,8 @@
 ****************************************************************************/
 
 #include "format.h"
-#include "repQty.h"
 
-void repQty (bool &keepReportsMenuActive, bool &keepRepQtytMenuActive)
+void repQty()
 {
 	
 }
