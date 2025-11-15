@@ -25,11 +25,10 @@ void lookUpBook (bool &keepInvMenuActive, bool &keepLookUpBookMenuActive, vector
 	string headingString;
 	string searchString;
 	string menuString;
-//	string lowerSearchString;
+	string lowerSearchString;
 	vector <string> titles;
 	string titleEmpty;
-	int indexBookInfo;
-	int booksFound = 0;
+	int    indexBookInfo;
 
 	headingString = OutputClassHeading();
 	menuString    = PrintLookUpBookMenu();
@@ -47,6 +46,8 @@ void lookUpBook (bool &keepInvMenuActive, bool &keepLookUpBookMenuActive, vector
 			}
 			titles.push_back(titleEmpty);
 			titleEmpty.clear();
+			//cout << endl << titles[i] << endl;
+
 		}
 			cin.clear();
 
@@ -57,29 +58,6 @@ void lookUpBook (bool &keepInvMenuActive, bool &keepLookUpBookMenuActive, vector
 		getline(cin, searchString);
 		cout << "\x1b[27;0H";
 
-		for (char& c : searchString)
-    		c = std::tolower(c);
-
-		if (!searchString.empty())
-		{
-			for (unsigned int i = 0; i < bookType::bookCount; i++)
-			{
-				if (titles.at(i).find(searchString) != std::string::npos || books.at(i).getIsbn() == searchString)
-				{
-					cout << " <" << i << "> " << books.at(i).getTitle() << endl
-						  << "ISBN: " << books.at(i).getIsbn() << endl;
-					booksFound++;
-					cout << endl;
-				}
-				if (booksFound == 0)
-				{
-					cout << "No matches found!" << endl
-						<< "Press enter to return to menu";
-					cin.get();
-					return;
-				}
-			}
-		}
 
 
 
@@ -115,8 +93,8 @@ void lookUpBook (bool &keepInvMenuActive, bool &keepLookUpBookMenuActive, vector
 
 		lowerSearchString.clear();
 
-*/
 
+/
 	if(!searchString.empty())
 	{
 		do {
