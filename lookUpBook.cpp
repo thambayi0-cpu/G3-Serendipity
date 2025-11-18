@@ -99,8 +99,9 @@ int lookUpBook (const vector<bookType>& books)
 		cout << "Invalid Input. Please enter a valid index for book info or -1 to exit: ";
 		cin >> bookIndex;
 	}
-	if (bookIndex == -1)
-		return -1;
+	if (bookIndex == -1){
+		cin.ignore(1000, '\n');
+		return -1;}
 	else
 	{
 		cout << CLEAR_SCREEN;

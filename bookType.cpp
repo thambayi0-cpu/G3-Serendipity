@@ -55,11 +55,23 @@ void bookType::setPublisher(string p)
 void bookType::setDate(string d)
 {date = d;}
 void bookType::setQty(unsigned int q)
-{qty = q;}
+{
+	if (q < 0 || q > 100)
+		q = 100;
+	qty = q;
+}
 void bookType::setWholesale(float w)
-{wholesale = w;}
+{
+	if (w < 0 || w > 999.99)
+		w = 999.99;
+	wholesale = w;
+}
 void bookType::setRetail(float r)
-{retail = r;}
+{
+	if (r < 0 || r > 999.99)
+		r = 999.99;
+	retail = r;
+}
 
 string bookType::getTitle() const
 {return title;}
@@ -80,18 +92,18 @@ float bookType::getRetail() const
 
 bookType::bookType(string t, string i, string a, string p, string d, unsigned int q, float w, float r)
 {
-        //cout << "Calling default constructor" << endl;
-        title = t;
-        isbn = i;
-        author = a;
-        publisher = p;
-        date = d;
-        qty = q;
-        wholesale = w;
-        retail = r;
+	//cout << "Calling default constructor" << endl;
+	title = t;
+	isbn = i;
+	author = a;
+	publisher = p;
+	date = d;
+	qty = q;
+	wholesale = w;
+	retail = r;
 }
 
 bookType::~bookType()
 {
-        //cout << "Destroying bookType instance" << endl;
+	//cout << "Destroying bookType instance" << endl;
 }
