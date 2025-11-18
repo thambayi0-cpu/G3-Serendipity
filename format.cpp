@@ -39,7 +39,7 @@ void printMidDash()
 	return;
 }
 
-void printAddBookMenu(const vector<bookType>& books, const bookType& emptyBook)
+void printAddBookMenu(const bookType& emptyBook)
 {
 	const int ENTER_WIDTH = 39;
 

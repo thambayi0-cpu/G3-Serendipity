@@ -26,7 +26,7 @@ void printBottomDash();
 
 void printMidDash();
 
-void printAddBookMenu(const vector<bookType>& books, const bookType& emptyBook);
+void printAddBookMenu(const bookType& emptyBook);
 
 void printEditBookMenu(const bookType& emptyBook);
 

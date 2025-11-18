@@ -34,7 +34,7 @@ void addBook (vector<bookType>& books)
 		return;
 	}
 
-	printAddBookMenu(books, emptyBook);
+	printAddBookMenu(emptyBook);
 
 	do
 	{
@@ -65,7 +65,7 @@ void addBook (vector<bookType>& books)
 				cin.ignore(1000, '\n');
 				getline(cin, t);
 				emptyBook.setTitle(t);
-				printAddBookMenu(books, emptyBook);
+				printAddBookMenu(emptyBook);
 				break;
 
 			case 2:
@@ -74,7 +74,7 @@ void addBook (vector<bookType>& books)
 				cin.ignore(1000, '\n');
 				getline(cin, i);
 				emptyBook.setIsbn(i);
-				printAddBookMenu(books, emptyBook);
+				printAddBookMenu(emptyBook);
 				break;
 
 			case 3:
@@ -83,7 +83,7 @@ void addBook (vector<bookType>& books)
 				cin.ignore(1000, '\n');
 				getline(cin, a);
 				emptyBook.setAuthor(a);
-				printAddBookMenu(books, emptyBook);
+				printAddBookMenu(emptyBook);
 				break;
 
 			case 4:
@@ -92,7 +92,7 @@ void addBook (vector<bookType>& books)
 				cin.ignore(1000, '\n');
 				getline(cin, p);
 				emptyBook.setPublisher(p);
-				printAddBookMenu(books, emptyBook);
+				printAddBookMenu(emptyBook);
 				break;
 
 			case 5:
@@ -101,7 +101,7 @@ void addBook (vector<bookType>& books)
 				cin.ignore(1000, '\n');
 				getline(cin, d);
 				emptyBook.setDate(d);
-				printAddBookMenu(books, emptyBook);
+				printAddBookMenu(emptyBook);
 				break;
 
 			case 6:
@@ -119,7 +119,7 @@ void addBook (vector<bookType>& books)
 				}
 				cout << "\x1b[23;1H" << "\x1b[2K";
 				emptyBook.setQty(static_cast<unsigned int>(q));
-				printAddBookMenu(books, emptyBook);
+				printAddBookMenu(emptyBook);
 				break;
 
 			case 7:
@@ -137,7 +137,7 @@ void addBook (vector<bookType>& books)
 				}
 				cout << "\x1b[23;1H" << "\x1b[2K";
 				emptyBook.setWholesale(w);
-				printAddBookMenu(books, emptyBook);
+				printAddBookMenu(emptyBook);
 				break;
 
 			case 8:
@@ -155,7 +155,7 @@ void addBook (vector<bookType>& books)
 				}
 				cout << "\x1b[23;1H" << "\x1b[2K";
 				emptyBook.setRetail(r);
-				printAddBookMenu(books, emptyBook);
+				printAddBookMenu(emptyBook);
 				break;
 
 			case 9:
@@ -163,7 +163,7 @@ void addBook (vector<bookType>& books)
 				books.at(bookType::bookCount).bookFill(emptyBook);
 				emptyBook.bookEmpty();
 				bookType::bookCount++;
-				printAddBookMenu(books, emptyBook);
+				printAddBookMenu(emptyBook);
 				cout << "\x1b[7;51H" << "BOOK SUCCESSFULLY ADDED!";
 				break;
 		}
