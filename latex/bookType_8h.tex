@@ -1,0 +1,36 @@
+\doxysection{book\+Type.\+h File Reference}
+\hypertarget{bookType_8h}{}\label{bookType_8h}\index{bookType.h@{bookType.h}}
+
+
+Declaration of the \doxylink{classbookType}{book\+Type} class for managing book inventory data.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for book\+Type.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{bookType_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bookType_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classbookType}{book\+Type}}
+\begin{DoxyCompactList}\small\item\em Stores metadata and inventory information for a book. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declaration of the \doxylink{classbookType}{book\+Type} class for managing book inventory data. 
+
+This class encapsulates bibliographic information, inventory quantity, and pricing (wholesale/retail). Quantity is capped at 100, and pricing fields are capped at 999.\+99. A static counter tracks the number of \doxylink{classbookType}{book\+Type} objects created. 

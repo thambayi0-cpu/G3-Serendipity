@@ -1,0 +1,92 @@
+\doxysection{format.\+h}
+\hypertarget{format_8h_source}{}\label{format_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ FORMAT\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ FORMAT\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bookType_8h}{bookType.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ TOTAL\_WIDTH\ =\ 81;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{void}\ printDash();\ \textcolor{comment}{//Prints\ +-\/-\/-\/-\/-\/+}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ printBorder();\ \textcolor{comment}{//Prints\ |\ \ \ \ \ |}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ printTopDash();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ printBottomDash();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ printMidDash();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ printAddBookMenu(\textcolor{keyword}{const}\ vector<bookType>\&\ books,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classbookType}{bookType}}\&\ emptyBook);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ printEditBookMenu(\textcolor{keyword}{const}\ \mbox{\hyperlink{classbookType}{bookType}}\&\ emptyBook);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00034\ \textcolor{comment}{*\ FUNCTION\ OutputClassHeading}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00036\ \textcolor{comment}{*\ Receives\ the\ size\ to\ format\ titles\ programmer's\ name,\ the\ class\ for\ the}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*\ assignment,\ the\ section\ day\ and\ time\ for\ the\ class,\ assignment\ type}}
+\DoxyCodeLine{00038\ \textcolor{comment}{*\ (assignment\ or\ lab)\ assignment\ name\ and\ assignment\ number.}}
+\DoxyCodeLine{00039\ \textcolor{comment}{*}}
+\DoxyCodeLine{00040\ \textcolor{comment}{*\ ==>\ returns\ nothing\ -\/\ This\ will\ output\ the\ class\ heading\ for\ the\ assignment.}}
+\DoxyCodeLine{00041\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{string}\ OutputClassHeading}
+\DoxyCodeLine{00043\ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \ HEADING\_COL\ \ \ \ =\ 76,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ asterisk\ string\ length}}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \ \ \ TITLE\_COL\ \ \ \ \ \ =\ 14,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ setw\ for\ header\ titles}}
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ PROGRAMMER\ \ \ \ \ =\ \textcolor{stringliteral}{"{}Ahmer\ Yasin\ \&\ Thokozile\ Hambayi"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ name\ of\ programmer}}
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ ID\ \ \ \ \ \ \ \ \ \ \ \ \ =\ \textcolor{stringliteral}{"{}A00349012\ \ \ \&\ 127485"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ Student\ IDs}}
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ CLASS\ \ \ \ \ \ \ \ \ \ =\ \textcolor{stringliteral}{"{}CS1B"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ class\ title}}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ SECTION\ \ \ \ \ \ \ \ =\ \textcolor{stringliteral}{"{}TTh\ 1:30pm"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ day\ and\ time\ of\ class}}
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ MODULE\ \ \ \ \ \ \ \ \ =\ \textcolor{stringliteral}{"{}2"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ module\ number}}
+\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ PURPOSE\ \ \ \ \ \ \ \ =\ \textcolor{stringliteral}{"{}Bookstore\ POS"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ lab\ description}}
+\DoxyCodeLine{00051\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ DUE\_DATE\ \ \ \ \ \ \ =\ \textcolor{stringliteral}{"{}09/23/2025"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ due\ date}}
+\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ AS\_TYPE\ \ \ \ \ \ \ \ =\ \textcolor{stringliteral}{"{}GROUP\ PROJECT"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ assignment\ type}}
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ AS\_NAME\ \ \ \ \ \ \ \ =\ \textcolor{stringliteral}{"{}Menus\ (Navigation\ \&\ Stubs)"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ assignment\ name}}
+\DoxyCodeLine{00054\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \ AS\_NUM\ \ \ \ \ \ \ \ \ =\ 2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ assignment\ number}}
+\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \ \ BORDER\_CHAR\ \ \ \ =\ \textcolor{charliteral}{'*'},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ border\ character}}
+\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \ BORDER\_SPACING\ =\ 1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ border\ formatting}}
+\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \ LINE\_LENGTH\ \ \ \ =\ 76);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ border\ length}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00061\ \textcolor{comment}{*\ FUNCTION\ OutputStringOfCharacter}}
+\DoxyCodeLine{00062\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00063\ \textcolor{comment}{*\ Receives\ a\ character\ for\ setfill()\ and\ length\ for\ the\ setw().}}
+\DoxyCodeLine{00064\ \textcolor{comment}{*}}
+\DoxyCodeLine{00065\ \textcolor{comment}{*\ ==>\ returns\ nothing\ -\/\ This\ will\ output\ the\ string\ of\ a\ character}}
+\DoxyCodeLine{00066\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{string}\ OutputStringOfCharacter}
+\DoxyCodeLine{00068\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ CHAR\_SIZE,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ IN\ -\/\ character\ string\ size}}
+\DoxyCodeLine{00069\ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \ CHARACTER\ =\ \textcolor{charliteral}{'*'});\ \textcolor{comment}{//\ IN\ -\/\ character\ for\ string}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{string}\ EndOfProgramBanner}
+\DoxyCodeLine{00073\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \ HEADING\_COL\ \ \ \ =\ 76,\ \ \ \textcolor{comment}{//\ IN\ -\/\ asterisk\ string\ length}}
+\DoxyCodeLine{00074\ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \ \ BORDER\_CHAR\ \ \ \ =\ \textcolor{charliteral}{'*'},\ \ \textcolor{comment}{//\ IN\ -\/\ border\ character}}
+\DoxyCodeLine{00075\ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \ BORDER\_SPACING\ =\ 1,\ \ \ \ \textcolor{comment}{//\ IN\ -\/\ border\ formatting}}
+\DoxyCodeLine{00076\ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \ LINE\_LENGTH\ \ \ \ =\ 76);\ \ \textcolor{comment}{//\ IN\ -\/\ border\ length}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{string}\ PrintMainMenu();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{string}\ PrintInvMenu();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{string}\ PrintReportsMenu();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{string}\ PrintLookUpBookMenu();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
