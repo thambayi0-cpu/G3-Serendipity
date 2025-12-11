@@ -39,7 +39,7 @@ void invMenu(bookNode*& head, bookNode*& tail);
  * @pre `bookType::bookCount` corresponds to the actual number of books.
  * @post No modification to `books`.
  */
-bookNode* lookUpBook(const bookNode* head);
+bookType* lookUpBook(const bookNode* head);
 
 /**
  * @brief Add a new book to the inventory (maximum of 20 books).
@@ -67,7 +67,7 @@ void addBook(bookNode*& head, bookNode*& tail);
  * @pre `bookType::bookCount > 0` (cannot edit an empty inventory).
  * @post Only the selected book may be modified.
  */
-void editBook(std::vector<bookType>& books);
+void editBook(bookNode*& head, bookNode*& tail);
 
 /**
  * @brief Delete a book from the inventory.

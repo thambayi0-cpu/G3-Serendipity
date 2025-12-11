@@ -13,12 +13,12 @@
 #include "format.h"
 #include "invMenu.h"
 
-void editBook (vector<bookType>& books)
+void editBook (bookNode*& head, bookNode*& tail)
 {
-/*
+
 	bool notDone = true;
 	int choice;
-	int index;
+	bookType* target;
 	char choice2;
 
 	string t;
@@ -32,12 +32,12 @@ void editBook (vector<bookType>& books)
 
 	bookType displayBook;
 
-	index = lookUpBook(books);
+	target = lookUpBook(head);
 
 	do
 	{
 
-		while (index == -1)
+		while (target == nullptr)
 		{
 			cout << "\033[H\033[2J";
 			cout << "Edit another book? (Y/N) ";
@@ -57,13 +57,13 @@ void editBook (vector<bookType>& books)
 			else if(choice2 == 'Y')
 			{
 				cin.ignore(1000, '\n');
-				index = lookUpBook(books);
+				target = lookUpBook(head);
 			}
 			cin.ignore(1000, '\n');
 		}
 
 
-		displayBook.bookFill(books.at(index));
+		displayBook.bookFill(*target);
 
 		printEditBookMenu(displayBook);
 
@@ -91,7 +91,7 @@ void editBook (vector<bookType>& books)
 				case 0:
 					notDone = false;
 					cin.ignore(1000, '\n');
-					index = -1;
+					target = nullptr;
 					break;
 				case 1:
 					cout << "\x1b[17;3H" << string(77, ' ');
@@ -185,14 +185,14 @@ void editBook (vector<bookType>& books)
 					printEditBookMenu(displayBook);
 					break;
 				case 9:
-					books.at(index).bookFill(displayBook);
+					target->bookFill(displayBook);
 					printEditBookMenu(displayBook);
 					cout << "\x1b[04;51H" << "BOOK SUCCESSFULLY EDITED!";
 					break;
 			}
 		} while (notDone);
-	} while(index == -1);
-*/
+	} while(target == nullptr);
+
 	return;
 
 }

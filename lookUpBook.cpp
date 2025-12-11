@@ -19,7 +19,7 @@
 
 using namespace std;
 
-bookNode* lookUpBook (const bookNode* head)
+bookType* lookUpBook (const bookNode* head)
 {
 	const string CLEAR_SCREEN = "\x1b[H\x1b[2J";
 	string headingString;
@@ -38,36 +38,6 @@ bookNode* lookUpBook (const bookNode* head)
 	cout << headingString;
 	cout << menuString;
 
-/*	for (unsigned int i = 0; i < bookType::bookCount; i++) //Creates a list of lowercase titles
-	{
-		for (int j = 0; j < int(books.at(i).getTitle().length()); j++)
-		{
-			titleEmpty.push_back(char(tolower(books.at(i).getTitle()[j])));
-		}
-		titles.push_back(titleEmpty);
-		titleEmpty.clear();
-	}
-
-	while (current != nullptr)
-	{
-		string titleEmpty;
-
-		for (int i = 0; i < current->book->getTitle().length(); i++)
-			titleEmpty.push_back(char(tolower(current->book->getTitle()[j])));
-		titles.push_back(titleEmpty);
-
-		current = current->next;
-	}
-
-	for (unsigned int i = 0; i < bookType::bookCount; i++) //Creates a list of lowercase isbns
-	{
-		for (int j = 0; j < int(books.at(i).getIsbn().length()); j++)
-		{
-			isbnEmpty.push_back(char(tolower(books.at(i).getIsbn()[j])));
-		}
-		isbns.push_back(isbnEmpty);
-		isbnEmpty.clear();
-	}*/
 	cin.clear();
 
 	cout << "\x1b[20;35H";
@@ -131,8 +101,7 @@ bookNode* lookUpBook (const bookNode* head)
 		cout << "\nPress enter to return";
 		cin.ignore(1000, '\n');
 		cin.get();
-		return const_cast<bookNode*>(matches.at(bookIndex)); //const_cast is needed so we can return a non-const pointer
+		return matches.at(bookIndex)->book;
 	}
-
 }
 
