@@ -14,7 +14,7 @@
 #include "format.h"
 #include "invMenu.h"
 
-void invMenu (vector<bookType>& books)
+void invMenu (bookNode*& head, bookNode*& tail)
 {
 	// Constants
 	const string INPUT_PROMPT     = "Enter Your Choice: ";
@@ -29,6 +29,7 @@ void invMenu (vector<bookType>& books)
 
 
 	// Variables
+	vector<bookType> books(20);
 	string         headingString;              // OUT  - class heading
 	string         endOfProgramString;         // OUT  - end of program statement
 	string         printInvMenuString;         // OUT  - inventory menu print
@@ -183,7 +184,7 @@ void invMenu (vector<bookType>& books)
 					cout << GREEN << inputPrintStr << choice << "." << RESET;
 					cout << pressEnterStr;
 					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
-					addBook(books);
+					addBook(head, tail);
 					calledBack = true;
 				}
 				break;

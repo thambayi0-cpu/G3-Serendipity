@@ -11,14 +11,16 @@
 ****************************************************************************/
 
 #include "format.h"
+#include "bookNode.h"
 
 using namespace std;
 
-void addBook (vector<bookType>& books)
+void addBook (bookNode*& head, bookNode*& tail)
 {
 	bool notDone = true;
 	int choice;
 	bookType emptyBook;
+	bookNode *newBook = nullptr;
 
 	string t;
 	string i;
@@ -160,10 +162,20 @@ void addBook (vector<bookType>& books)
 
 			case 9:
 
-				books.at(bookType::bookCount).bookFill(emptyBook);
-				emptyBook.bookEmpty();
+				newBook = new bookNode;
+				newBook->book = new bookType(emptyBook);
+				newBook->next = nullptr;
+				if (head == nullptr)
+					head = tail = newBook;
+				else
+				{
+					tail->next = newBook;
+					tail = newBook;
+				}
 				bookType::bookCount++;
+				emptyBook.bookEmpty();
 				printAddBookMenu(emptyBook);
+
 				cout << "\x1b[7;51H" << "BOOK SUCCESSFULLY ADDED!";
 				break;
 		}

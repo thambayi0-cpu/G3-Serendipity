@@ -15,7 +15,7 @@
 #include "invMenu.h"
 #include "reports.h"
 #include "bookType.h"
-
+#include "bookNode.h"
 
 int main()
 {
@@ -32,8 +32,6 @@ int main()
 
 
 	// Variables
-	vector<bookType> books(20);
-
 	string         headingString;              // OUT  - class heading
 	string         endOfProgramString;         // OUT  - end of program statement
 	string         printMainMenuString;			 // OUT  - mainmenu print
@@ -63,6 +61,8 @@ int main()
 	ostringstream  goodByeMessage;				 // PROC - cursor position and good bye message stores in goodByeMessageStr
 	string         goodByeMessageStr;			 // OUT  - good bye message
 
+	bookNode *head = nullptr; // Head of the linked list
+	bookNode *tail = nullptr; // Tail of the linked list
 
 	// INITIALIZATIONS
 	headingString         = OutputClassHeading();
@@ -185,7 +185,7 @@ int main()
 				//cout << pressEnterStr;
 				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				invMenu(books);
+				invMenu(head, tail);
 				break;
 
 			// Reports Menu

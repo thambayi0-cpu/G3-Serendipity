@@ -13,6 +13,7 @@
 #include <string>
 #include <vector>
 #include "bookType.h"
+#include "bookNode.h"
 
 /**
  * @brief Display and manage the main inventory menu.
@@ -24,7 +25,7 @@
  * @pre `bookType::bookCount` accurately reflects the number of active books.
  * @post The contents of `books` may be modified depending on user input.
  */
-void invMenu(std::vector<bookType>& books);
+void invMenu(bookNode*& head, bookNode*& tail);
 
 /**
  * @brief Search the inventory for a book by title or ISBN number.
@@ -54,7 +55,7 @@ int lookUpBook(const std::vector<bookType>& books);
  *      - If `bookType::bookCount < 20`, a new book is added and bookCount is incremented.
  *      - If `bookType::bookCount == 20`, no change is made.
  */
-void addBook(std::vector<bookType>& books);
+void addBook(bookNode*& head, bookNode*& tail);
 
 /**
  * @brief Edit an existing book in the inventory.
