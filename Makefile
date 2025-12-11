@@ -1,5 +1,5 @@
-run-test: mainmenu.o format.o cashier.o invMenu.o reports.o lookUpBook.o addBook.o editBook.o deleteBook.o repListing.o repWholesale.o repRetail.o repQty.o repCost.o repAge.o bookType.o
-	g++ -std=c++20 -Wall -Werror -o run-test mainmenu.o format.o cashier.o invMenu.o reports.o lookUpBook.o addBook.o editBook.o deleteBook.o repListing.o repWholesale.o repRetail.o repQty.o repCost.o repAge.o bookType.o
+run-test: mainmenu.o format.o cashier.o invMenu.o reports.o lookUpBook.o addBook.o editBook.o deleteBook.o repListing.o repWholesale.o repRetail.o repQty.o repCost.o repAge.o bookType.o toLower.o
+	g++ -std=c++20 -Wall -Werror -o run-test mainmenu.o format.o cashier.o invMenu.o reports.o lookUpBook.o addBook.o editBook.o deleteBook.o repListing.o repWholesale.o repRetail.o repQty.o repCost.o repAge.o bookType.o toLower.o
 
 bookType.o: bookType.cpp
 	g++ -std=c++20 -Wall -Werror -c bookType.cpp
@@ -48,6 +48,9 @@ repCost.o: repCost.cpp
 
 repAge.o: repAge.cpp
 	g++ -std=c++20 -Wall -Werror -c repAge.cpp
+
+toLower.o: toLower.cpp
+	g++ -std=c++20 -Wall -Werror -c toLower.cpp
 
 
 

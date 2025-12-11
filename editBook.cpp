@@ -15,7 +15,7 @@
 
 void editBook (vector<bookType>& books)
 {
-
+/*
 	bool notDone = true;
 	int choice;
 	int index;
@@ -192,6 +192,7 @@ void editBook (vector<bookType>& books)
 			}
 		} while (notDone);
 	} while(index == -1);
+*/
 	return;
 
 }

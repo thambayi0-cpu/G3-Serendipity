@@ -15,7 +15,7 @@
 
 void deleteBook (vector<bookType>& books)
 {
-	bool notDone = true;
+/*	bool notDone = true;
 	char choice;
 	int index;
 
@@ -73,7 +73,7 @@ void deleteBook (vector<bookType>& books)
 		cin.ignore(1000, '\n');
 
 	} while (notDone);
-
+*/
 	return;
 }
 

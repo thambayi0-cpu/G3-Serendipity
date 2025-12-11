@@ -39,7 +39,7 @@ void invMenu(bookNode*& head, bookNode*& tail);
  * @pre `bookType::bookCount` corresponds to the actual number of books.
  * @post No modification to `books`.
  */
-int lookUpBook(const std::vector<bookType>& books);
+bookNode* lookUpBook(const bookNode* head);
 
 /**
  * @brief Add a new book to the inventory (maximum of 20 books).
@@ -82,6 +82,9 @@ void editBook(std::vector<bookType>& books);
  *      - If not found, no modification is made.
  */
 void deleteBook(std::vector<bookType>& books);
+
+std::string toLower(std::string s); //Helper function. Makes strings lowercase. Only really needed for lookUpBook
+
 
 #endif // INVMENU_H
 

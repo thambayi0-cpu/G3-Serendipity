@@ -164,7 +164,7 @@ void invMenu (bookNode*& head, bookNode*& tail)
 					//cout << pressEnterStr;
 					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-					lookUpBook(books);
+					lookUpBook(head);
 					//calledBack = true;
 					cout << CLEAR_SCREEN << headingString << printInvMenuString;
 				}

@@ -11,25 +11,24 @@
 ****************************************************************************/
 
 #include "format.h"
+#include "invMenu.h"
 #include <string>
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include "bookType.h"
+
 using namespace std;
 
-int lookUpBook (const vector<bookType>& books)
+bookNode* lookUpBook (const bookNode* head)
 {
 	const string CLEAR_SCREEN = "\x1b[H\x1b[2J";
 	string headingString;
 	string searchString;
 	string menuString;
-	vector <string> titles;
-	vector <string> isbns;
-	string titleEmpty;
-	string isbnEmpty;
+	vector <const bookNode*> matches;
 	int bookIndex;
 	int booksFound = 0;
+	const bookNode* current = head;
 
 	headingString = OutputClassHeading();
 	menuString    = PrintLookUpBookMenu();
@@ -39,7 +38,7 @@ int lookUpBook (const vector<bookType>& books)
 	cout << headingString;
 	cout << menuString;
 
-	for (unsigned int i = 0; i < bookType::bookCount; i++) //Creates a list of lowercase titles
+/*	for (unsigned int i = 0; i < bookType::bookCount; i++) //Creates a list of lowercase titles
 	{
 		for (int j = 0; j < int(books.at(i).getTitle().length()); j++)
 		{
@@ -48,6 +47,18 @@ int lookUpBook (const vector<bookType>& books)
 		titles.push_back(titleEmpty);
 		titleEmpty.clear();
 	}
+
+	while (current != nullptr)
+	{
+		string titleEmpty;
+
+		for (int i = 0; i < current->book->getTitle().length(); i++)
+			titleEmpty.push_back(char(tolower(current->book->getTitle()[j])));
+		titles.push_back(titleEmpty);
+
+		current = current->next;
+	}
+
 	for (unsigned int i = 0; i < bookType::bookCount; i++) //Creates a list of lowercase isbns
 	{
 		for (int j = 0; j < int(books.at(i).getIsbn().length()); j++)
@@ -56,7 +67,7 @@ int lookUpBook (const vector<bookType>& books)
 		}
 		isbns.push_back(isbnEmpty);
 		isbnEmpty.clear();
-	}
+	}*/
 	cin.clear();
 
 	cout << "\x1b[20;35H";
@@ -65,59 +76,62 @@ int lookUpBook (const vector<bookType>& books)
 
 
 	if (searchString.empty())
-		return -1;
+		return nullptr;
 	else
 	{
-		for (char& c : searchString)
-    		c = std::tolower(c);
-		for (unsigned int i = 0; i < bookType::bookCount; i++)
+		toLower(searchString);
+		while (current != nullptr)
 		{
-			if (titles.at(i).find(searchString) != std::string::npos || isbns.at(i) == searchString)
+			if (toLower(current->book->getTitle()).find(searchString) != std::string::npos || current->book->getIsbn() == searchString)
 			{
 				booksFound++;
-				cout << " <" << i << "> " << books.at(i).getTitle() << endl
-					  << "     ISBN: " << books.at(i).getIsbn() << endl;
+				matches.push_back(current);
+				cout << " <" << booksFound-1 << "> " << current->book->getTitle() << endl
+					  << "     ISBN: " << current->book->getIsbn() << endl;
 				cout << endl;
 			}
+			current = current->next;
 		}
 		if (booksFound == 0)
 		{
 			cout << "No matches found!" << endl
 				<< "Press enter to return to menu";
 			cin.get();
-			return -1;
+			return nullptr;
 		}
 	}
 
 
 	cout << endl << endl << "Enter index for book info or -1 to exit: ";
 	cin  >> bookIndex;
-	while (cin.fail() || (bookIndex < -1 || (bookIndex >= 0 && bookIndex >= static_cast<int>(bookType::bookCount))))
+	while (cin.fail() || bookIndex < -1 || bookIndex > booksFound-1)
 	{
 		cin.clear();
 		cin.ignore(1000, '\n');
 		cout << "Invalid Input. Please enter a valid index for book info or -1 to exit: ";
 		cin >> bookIndex;
 	}
-	if (bookIndex == -1){
+	if (bookIndex == -1)
+	{
 		cin.ignore(1000, '\n');
-		return -1;}
+		return nullptr;
+	}
 	else
 	{
 		cout << CLEAR_SCREEN;
-		cout << "Title:      "  << books.at(bookIndex).getTitle() << endl;
-		cout << "ISBN:       "  << books.at(bookIndex).getIsbn() << endl;
-		cout << "Author:     "  << books.at(bookIndex).getAuthor() << endl;
-		cout << "Publisher:  "  << books.at(bookIndex).getPublisher() << endl;
-		cout << "Date Added: "  << books.at(bookIndex).getDate() << endl;
-		cout << "Qty:        "  << books.at(bookIndex).getQty() << endl;
-		cout << "Wholesale:  "  << books.at(bookIndex).getWholesale() << endl;
-		cout << "Retail:     "  << books.at(bookIndex).getRetail() << endl;
+		cout << "Title:      "  << matches.at(bookIndex)->book->getTitle() << endl;
+		cout << "ISBN:       "  << matches.at(bookIndex)->book->getIsbn() << endl;
+		cout << "Author:     "  << matches.at(bookIndex)->book->getAuthor() << endl;
+		cout << "Publisher:  "  << matches.at(bookIndex)->book->getPublisher() << endl;
+		cout << "Date Added: "  << matches.at(bookIndex)->book->getDate() << endl;
+		cout << "Qty:        "  << matches.at(bookIndex)->book->getQty() << endl;
+		cout << "Wholesale:  "  << matches.at(bookIndex)->book->getWholesale() << endl;
+		cout << "Retail:     "  << matches.at(bookIndex)->book->getRetail() << endl;
 
 		cout << "\nPress enter to return";
 		cin.ignore(1000, '\n');
 		cin.get();
-		return bookIndex;
+		return const_cast<bookNode*>(matches.at(bookIndex)); //const_cast is needed so we can return a non-const pointer
 	}
 
 }
