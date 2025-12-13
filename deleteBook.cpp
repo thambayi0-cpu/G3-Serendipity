@@ -13,17 +13,17 @@
 #include "format.h"
 #include "invMenu.h"
 
-void deleteBook (vector<bookType>& books)
+void deleteBook (bookNode*& head, bookNode*& tail)
 {
-/*	bool notDone = true;
+	bool notDone = true;
 	char choice;
-	int index;
+	bookType* target;
 
-	index = lookUpBook(books);
+	target = lookUpBook(head);
 
 	do
 	{
-		while (index == -1)
+		while (target == nullptr)
 		{
 			cout << "\033[H\033[2J";
 			cout << "Delete another book? (Y/N) ";
@@ -43,7 +43,7 @@ void deleteBook (vector<bookType>& books)
 			else if (choice == 'Y')
 			{
 				cin.ignore(1000, '\n');
-				index = lookUpBook(books);
+				target = lookUpBook(head);
 			}
 			cin.ignore(1000, '\n');
 		}
@@ -63,17 +63,15 @@ void deleteBook (vector<bookType>& books)
 
 		if (choice == 'Y')
 		{
-			books.erase(books.begin()+index);
-			bookType::bookCount--;
-			books.resize(20); //Resize the vector to avoid an out of range check
+			deleteNode(head, tail, target);
+
 			cout << "BOOK SUCCESSFULLY DELETED" << endl;
 		}
 
-		index = -1;
+		target = nullptr;
 		cin.ignore(1000, '\n');
 
 	} while (notDone);
-*/
+
 	return;
 }
-

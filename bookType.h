@@ -67,6 +67,8 @@ public:
      */
     static unsigned int bookCount;
 
+	bool operator<(const bookType& rhs) const;
+
     /* ===========================================
        Setters / Mutators
        =========================================== */

@@ -7,15 +7,15 @@
 
 void reports();
 
-void repListing();
+void repListing(); //List all books
 
-void repWholesale();
+void repWholesale(); //
 
 void repRetail();
 
-void repQty();
+void repQty(); //List by quantity (not required)
 
-void repCost();
+void repCost(); //List by cost (again, not required) presumably wholesale
 
-void repAge();
+void repAge(); //List books by age (again, not required)
 #endif

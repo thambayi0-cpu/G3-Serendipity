@@ -169,12 +169,22 @@ int main()
 		{
 			// Cashier
 			case '1':
-				cout << GREEN << inputPrintStr << choice << "." << RESET;
+				if (bookType::bookCount == 0)
+				{
+					cout << CLEAR_SCREEN << headingString << printMainMenuString << inputPromptStr
+					<< RED  << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight  << "H" << setfill(' ')
+					<< setw(INPUT_PRINT_FILL) << " "<< "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H"
+					<< "Inventory empty." << RESET;
 
-				//cout << pressEnterStr;
-				//cin.ignore(numeric_limits<streamsize>::max());
+				}
+				else
+				{
+					cout << GREEN << inputPrintStr << choice << "." << RESET;
+					//cout << pressEnterStr;
+					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				cashier();
+					cashier(head, tail);
+				}
 
 				break;
 

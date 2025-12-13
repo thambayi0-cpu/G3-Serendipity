@@ -18,6 +18,11 @@ using namespace std;
 
 unsigned int bookType::bookCount = 0;
 
+bool bookType::operator<(const bookType& rhs) const
+{
+	return this->title < rhs.getTitle();
+}
+
 //Setters//
 
 void bookType::bookFill(const bookType& other)

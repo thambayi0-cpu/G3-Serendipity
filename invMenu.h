@@ -81,7 +81,7 @@ void editBook(bookNode*& head, bookNode*& tail);
  *      - If the book exists, it is erased from the vector and `bookType::bookCount` is decremented.
  *      - If not found, no modification is made.
  */
-void deleteBook(std::vector<bookType>& books);
+void deleteBook(bookNode*& head, bookNode*& tail);
 
 std::string toLower(std::string s); //Helper function. Makes strings lowercase. Only really needed for lookUpBook
 

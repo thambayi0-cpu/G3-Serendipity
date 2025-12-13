@@ -12,4 +12,10 @@ struct bookNode
 	{}
 };
 
+void deleteNode(bookNode*& head, bookNode*& tail, bookType*& nodeToDelete);
+
+void destroyList(bookNode*& head, bookNode*& tail);
+
+void insertOrdered(bookNode*& head, bookNode*& tail, bookNode*& nodeToAdd);
+
 #endif

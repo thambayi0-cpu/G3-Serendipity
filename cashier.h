@@ -3,8 +3,8 @@
 #ifndef CASHIER_H
 #define CASHIER_H
 
-#include "bookType.h"
+#include "bookNode.h"
 
-void cashier();
+void cashier(bookNode*& head, bookNode*& tail);
 
 #endif

@@ -110,7 +110,7 @@ void addBook (bookNode*& head, bookNode*& tail)
 				cout << "\x1b[20;3H" << string(77, ' ');
 				cout << "\x1b[20;3H" << "Enter Book Quantity: ";
 				cin >> q;
-				while (cin.fail() || q < 0)
+				while (cin.fail() || q < 1)
 				{
 					cout << "\x1b[23;1H" << "INVALID INPUT";
 					cin.clear();

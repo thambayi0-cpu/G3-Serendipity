@@ -49,7 +49,7 @@ bookType* lookUpBook (const bookNode* head)
 		return nullptr;
 	else
 	{
-		toLower(searchString);
+		searchString = toLower(searchString);
 		while (current != nullptr)
 		{
 			if (toLower(current->book->getTitle()).find(searchString) != std::string::npos || current->book->getIsbn() == searchString)
