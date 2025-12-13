@@ -226,7 +226,7 @@ int main()
 
 	} while (keepActive);
 
-
+	destroyList(head, tail);
 
 	// OUTPUT - Good bye message
 	cout << goodByeMessageStr;

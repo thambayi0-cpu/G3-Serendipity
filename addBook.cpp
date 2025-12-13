@@ -165,13 +165,7 @@ void addBook (bookNode*& head, bookNode*& tail)
 				newBook = new bookNode;
 				newBook->book = new bookType(emptyBook);
 				newBook->next = nullptr;
-				if (head == nullptr)
-					head = tail = newBook;
-				else
-				{
-					tail->next = newBook;
-					tail = newBook;
-				}
+				insertOrdered(head, tail, newBook);
 				bookType::bookCount++;
 				emptyBook.bookEmpty();
 				printAddBookMenu(emptyBook);

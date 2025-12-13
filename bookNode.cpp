@@ -11,31 +11,26 @@ void deleteNode(bookNode*& head, bookNode*& tail, bookType*& nodeToDelete)
 		prev = current;
 		current = current->next;
 	}
-   if (current == head)
-   {
+	if (current == head)
+	{
 		if (bookType::bookCount == 1)
 			head = tail = nullptr;
 		else
 			head = head->next;
-
-		delete current->book;
-		delete current;
-   }
-   else if (current == tail)
-   {
+	}
+	else if (current == tail)
+	{
 		prev->next = nullptr;
 		tail = prev;
-		delete current->book;
-		delete current;
-   }
-   else
-   {
+	}
+	else
 		prev->next = current->next;
-		delete current->book;
-		delete current;
-   }
-   current = nullptr;
-   bookType::bookCount--;
+
+	delete current->book;
+	delete current;
+
+	current = nullptr;
+	bookType::bookCount--;
 }
 
 void destroyList(bookNode*& head, bookNode*& tail)
@@ -66,8 +61,8 @@ void destroyList(bookNode*& head, bookNode*& tail)
 
 void insertOrdered(bookNode*& head, bookNode*& tail, bookNode*& nodeToAdd)
 {
-	bookNode* current;
-	bookNode* prev;
+	bookNode* current = head;
+	bookNode* prev = nullptr;
 
 	if (head == nullptr)
 	{

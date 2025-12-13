@@ -185,10 +185,40 @@ void editBook (bookNode*& head, bookNode*& tail)
 					printEditBookMenu(displayBook);
 					break;
 				case 9:
+				{ //Parenthesis are necessary otherwise you can't declare variables in a case block
+					//Step 1: Actually edit the book
 					target->bookFill(displayBook);
+					//Step 2: 'Unhook' the node as if you were deleting it
+					bookNode* current = head;
+					bookNode* prev = nullptr;
+					while (current != nullptr && current->book != target)
+					{
+						prev = current;
+						current = current->next;
+					}
+					if (current == nullptr)
+						break;
+					if (current == head)
+					{
+						if (head->next != nullptr)
+							head = head->next;
+						else
+							head = tail = nullptr;
+					}
+					else if (current == tail)
+					{
+						prev->next = nullptr;
+						tail = prev;
+					}
+					else
+						prev->next = current->next;
+					//Step 3: Reinsert the edited node
+					current->next = nullptr;
+					insertOrdered(head, tail, current);
 					printEditBookMenu(displayBook);
 					cout << "\x1b[04;51H" << "BOOK SUCCESSFULLY EDITED!";
 					break;
+				}
 			}
 		} while (notDone);
 	} while(target == nullptr);
