@@ -143,7 +143,7 @@ void cashier(bookNode*& head, bookNode*& tail)
 
 			printBorder();
 
-			cout << "│Date: " << "12/13/2025" << right << setw(TOTAL_WIDTH - 6 - 10) << "│" << endl; //TODO: use #ctime to print actual date
+			cout << "│Date: " << printCurrentDate() << right << setw(TOTAL_WIDTH - 6 - 10) << "│" << endl;
 
 			printBorder();
 

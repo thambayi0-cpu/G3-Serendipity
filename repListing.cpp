@@ -73,8 +73,8 @@ void repListing(bookNode*& head, bookNode*& tail)
 		 		  << setw(ISBN_WIDTH) << current->book->getIsbn() << " "
 				  << setw(AUTHOR_WIDTH) << ((current->book->getAuthor().length() > AUTHOR_WIDTH) ? current->book->getAuthor().substr(0, AUTHOR_WIDTH) : current->book->getAuthor()) << " "
 				  << setw(PUBLISHER_WIDTH) << ((current->book->getPublisher().length() > PUBLISHER_WIDTH) ? current->book->getPublisher().substr(0, PUBLISHER_WIDTH) : current->book->getPublisher()) << " "
-				  << setw(QTY_WIDTH) << current->book->getQty() << " "
-			     << setw(WHOLESALE_WIDTH) << current->book->getWholesale() << " "
+				  << setw(QTY_WIDTH) << fixed << setprecision(0) << current->book->getQty() << " "
+			     << setw(WHOLESALE_WIDTH) << setprecision(2) << current->book->getWholesale() << " "
 				  << setw(RETAIL_WIDTH) << current->book->getRetail()
 				  << setw(TOTAL_WIDTH-79) << " │" << endl;
 			if (current->next == nullptr)
