@@ -67,6 +67,23 @@ public:
      */
     static unsigned int bookCount;
 
+	/**
+	 * @brief Less-than comparison operator for bookType objects.
+	 *
+	 * Compares two bookType objects based on their titles using
+	 * lexicographical (alphabetical) order.
+	 *
+	 * @param rhs The bookType object to compare against.
+	 *
+	 * @pre Both bookType objects must have valid title strings.
+	 *      Titles are compared as stored (case-sensitive unless
+	 *      otherwise normalized by the caller).
+	 *
+	 * @post No data members of either bookType object are modified.
+	 *
+	 * @return true if this object's title is alphabetically less than
+	 *         rhs.title; false otherwise.
+	 */
 	bool operator<(const bookType& rhs) const;
 
     /* ===========================================

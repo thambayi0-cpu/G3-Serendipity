@@ -16,8 +16,6 @@ using namespace std;
 
 const int TOTAL_WIDTH = 81;
 
-void printDash(); //Prints +-----+
-
 void printBorder(); //Prints |     |
 
 void printTopDash();
