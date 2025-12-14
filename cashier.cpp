@@ -193,11 +193,8 @@ void cashier(bookNode*& head, bookNode*& tail)
 			if (choice == 'Y')
 			{
 				for (cartItem c : cart)
-				{
 					c.bookPtr->setQty(c.bookPtr->getQty() - c.qty);
-					if (c.bookPtr->getQty() == 0)
-						deleteNode(head, tail, c.bookPtr);
-				}
+
 				cout << "Thank you!" << endl;
 			}
 			else if (choice == 'N')

@@ -53,7 +53,7 @@ void printAddBookMenu(const bookType& emptyBook)
 
    printBorder();
 
-   cout << "│                             DATABASE SIZE: 100 CURRENT BOOK COUNT: " << left << setw(3) << bookType::bookCount << right << "       │" << endl;
+   cout << "│                             DATABASE SIZE: 200 CURRENT BOOK COUNT: " << left << setw(3) << bookType::bookCount << right << "       │" << endl;
 
 	printBorder();
 
