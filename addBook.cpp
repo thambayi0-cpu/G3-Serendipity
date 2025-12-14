@@ -31,10 +31,8 @@ void addBook (bookNode*& head, bookNode*& tail)
 	float w;
 	float r;
 
-	if (bookType::bookCount >= 20)
-	{
+	if (bookType::bookCount >= 200)
 		return;
-	}
 
 	printAddBookMenu(emptyBook);
 
@@ -175,7 +173,7 @@ void addBook (bookNode*& head, bookNode*& tail)
 		}
 
 
-	} while (notDone && bookType::bookCount < 20);
+	} while (notDone && bookType::bookCount < 200);
 
 	return;
 }

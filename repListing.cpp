@@ -20,8 +20,8 @@ void repListing(bookNode*& head, bookNode*& tail)
 	bookNode* current = head;
 	string currentDate = printCurrentDate();
 
-	const int BOOKS_SHOWN = 5;
-	const int DATABASE_SIZE = 20;
+	const int BOOKS_SHOWN = 10;
+	const int DATABASE_SIZE = 200;
 
 	const int TITLE_WIDTH = 16;
 	const int ISBN_WIDTH = 13;
@@ -54,9 +54,9 @@ void repListing(bookNode*& head, bookNode*& tail)
 
 		printBorder();
 
-		cout << "│ " << left << setw(20) << ("DATE: " + currentDate)
-			  << setw(14) << ("PAGE: " + currentStr + " of " + pageStr)
-			  << setw(24) << ("DATABASE SIZE: " + databaseStr + "   CURRENT BOOK COUNT: " + countStr) << " │" << endl;
+		cout << "│ " << left << setw(16) << ("DATE: " + currentDate)
+			  << setw(15) << (" PAGE: " + currentStr + " of " + pageStr)
+			  << setw(45) << (" DATABASE SIZE: " + databaseStr + "  CURRENT BOOK COUNT: " + countStr) << " │" << endl;
 
 
 		printBorder();

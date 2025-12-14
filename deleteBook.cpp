@@ -71,7 +71,7 @@ void deleteBook (bookNode*& head, bookNode*& tail)
 		target = nullptr;
 		cin.ignore(1000, '\n');
 
-	} while (notDone);
+	} while (notDone && bookType::bookCount > 0);
 
 	return;
 }

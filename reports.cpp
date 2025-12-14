@@ -25,6 +25,7 @@ void reports(bookNode*& head, bookNode*& tail)
 	const string RESET            = "\x1b[0m";
 	const string RED              = "\x1b[31m";
 	const string GREEN            = "\x1b[32m";
+	const string GREY             = "\x1b[02m";
 
 
 

@@ -53,7 +53,7 @@ void printAddBookMenu(const bookType& emptyBook)
 
    printBorder();
 
-   cout << "│                             DATABASE SIZE:  20 CURRENT BOOK COUNT: " << left << setw(3) << bookType::bookCount << right << "       │" << endl;
+   cout << "│                             DATABASE SIZE: 100 CURRENT BOOK COUNT: " << left << setw(3) << bookType::bookCount << right << "       │" << endl;
 
 	printBorder();
 
@@ -628,13 +628,13 @@ string PrintReportsMenu()
 		 << endl
 		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " "   << SELECTION_THREE    << setfill(' ') << setw(22) << right << HORIZONTAL_BORDER
 		 << endl
-		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " "   << SELECTION_FOUR     << setfill(' ') << setw(24) << right << HORIZONTAL_BORDER
+		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " " << "\x1b[2m" << "\033[90m" << SELECTION_FOUR << "\x1b[0m" << setfill(' ') << setw(24) << right << HORIZONTAL_BORDER
 		 << endl
-		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " "   << SELECTION_FIVE     << setfill(' ') << setw(29) << right << HORIZONTAL_BORDER
+		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " " << "\x1b[2m" << "\033[90m" << SELECTION_FIVE << "\x1b[0m" << setfill(' ') << setw(29) << right << HORIZONTAL_BORDER
 		 << endl
-	    << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " "   << SELECTION_SIX      << setfill(' ') << setw(30) << right << HORIZONTAL_BORDER
+	    << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " " << "\x1b[2m" << "\033[90m" << SELECTION_SIX << "\x1b[0m" << setfill(' ') << setw(30) << right << HORIZONTAL_BORDER
 		 << endl
-		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " "   << SELECTION_SEVEN    << setfill(' ') << setw(25) << right << HORIZONTAL_BORDER
+		 << HORIZONTAL_BORDER << setfill(' ') << setw(17) << " " << SELECTION_SEVEN    << setfill(' ') << setw(25) << right << HORIZONTAL_BORDER
 		 << endl
 		 << HORIZONTAL_BORDER << setfill(' ') << setw(64) << right << HORIZONTAL_BORDER
 		 << endl

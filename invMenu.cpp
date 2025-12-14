@@ -29,7 +29,6 @@ void invMenu (bookNode*& head, bookNode*& tail)
 
 
 	// Variables
-	vector<bookType> books(20);
 	string         headingString;              // OUT  - class heading
 	string         endOfProgramString;         // OUT  - end of program statement
 	string         printInvMenuString;         // OUT  - inventory menu print
@@ -167,7 +166,7 @@ void invMenu (bookNode*& head, bookNode*& tail)
 
 			// Add Book
 			case '2':
-				if (bookType::bookCount >= 20)
+				if (bookType::bookCount >= 200)
 				{
 					cout << CLEAR_SCREEN << headingString << printInvMenuString << inputPromptStr
 					<< RED << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H" << setfill(' ')
