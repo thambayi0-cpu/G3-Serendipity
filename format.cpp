@@ -5,6 +5,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <ctime>
 #include "format.h"
 
 using namespace std;
@@ -131,6 +132,21 @@ void printEditBookMenu(const bookType& emptyBook)
    printBottomDash();
 
 	return;
+}
+
+string printCurrentDate()
+{
+	std::time_t now = std::time(nullptr);
+	std::tm* local = std::localtime(&now);
+
+	ostringstream out;
+
+	out << std::setfill('0')
+	  << std::setw(2) << (local->tm_mon + 1) << "/"
+	  << std::setw(2) << local->tm_mday << "/"
+	  << (local->tm_year + 1900);
+
+	return out.str();
 }
 
 

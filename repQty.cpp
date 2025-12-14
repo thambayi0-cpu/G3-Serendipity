@@ -11,8 +11,9 @@
 ****************************************************************************/
 
 #include "format.h"
+#include "reports.h"
 
-void repQty()
+void repQty(bookNode*& head, bookNode*& tail)
 {
 	
 }

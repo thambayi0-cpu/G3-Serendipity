@@ -11,8 +11,9 @@
 ****************************************************************************/
 
 #include "format.h"
+#include "reports.h"
 
-void repAge()
+void repAge(bookNode*& head, bookNode*& tail)
 {
 	
 }

@@ -12,8 +12,9 @@
 ****************************************************************************/
 
 #include "format.h"
+#include "reports.h"
 
-void repRetail()
+void repRetail(bookNode*& head, bookNode*& tail)
 {
 	
 }

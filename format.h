@@ -30,6 +30,8 @@ void printAddBookMenu(const bookType& emptyBook);
 
 void printEditBookMenu(const bookType& emptyBook);
 
+std::string printCurrentDate();
+
 /******************************************************************************
 * FUNCTION OutputClassHeading
 * -----------------------------------------------------------------------------

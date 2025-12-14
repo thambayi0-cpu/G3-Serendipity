@@ -57,7 +57,6 @@ void cashier(bookNode*& head, bookNode*& tail)
 				cout << "Choose another book? (Y/N) ";
 				cin.get(choice);
 				choice = toupper(choice);
-				cout << choice << "|";
 
 				while (choice != 'Y' && choice != 'N')
 				{

@@ -130,18 +130,14 @@ void invMenu (bookNode*& head, bookNode*& tail)
 				choice = choiceString[0];
 				invalidInputBool = false;
 				if (calledBack)
-				{
 					calledBack = false;
-				}
 			}
 			else
 			{
 				if (!calledBack) //Check to see if it's come back from another menu
 					cout << CLEAR_SCREEN << headingString << printInvMenuString << inputPromptStr << RED << invalidInputStr << RESET;
 				else
-				{
 					calledBack = false;
-				}
 			}
 
 		} while (invalidInputBool);
@@ -165,8 +161,7 @@ void invMenu (bookNode*& head, bookNode*& tail)
 					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 					lookUpBook(head);
-					//calledBack = true;
-					cout << CLEAR_SCREEN << headingString << printInvMenuString;
+					calledBack = true;
 				}
 				break;
 

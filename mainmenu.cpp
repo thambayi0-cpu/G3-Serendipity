@@ -63,6 +63,7 @@ int main()
 
 	bookNode *head = nullptr; // Head of the linked list
 	bookNode *tail = nullptr; // Tail of the linked list
+	bool calledBack = false;
 
 	// INITIALIZATIONS
 	headingString         = OutputClassHeading();
@@ -104,31 +105,28 @@ int main()
 
 
 
+	// Clear Screen
+	cout << CLEAR_SCREEN;
+
+
+	// OUTPUT HEADING - Class heading output
+	cout << headingString;
+
+
+	// INPUT - Main Menu Display
+	cout << printMainMenuString;
 
 
 	// INPUT - Main Menu Input Prompt for "Choice"
-	do
+	while (keepActive)
 	{
-
-		// Clear Screen
-		cout << CLEAR_SCREEN;
-
-
-		// OUTPUT HEADING - Class heading output
-		cout << headingString;
-
-
-		// INPUT - Main Menu Display
-		cout << printMainMenuString;
-
-
-
-
-
 
 		// INPUT - Menu Prompt
 		invalidInputBool = true;
 		choice = 0;
+
+		if (calledBack)
+			cout << CLEAR_SCREEN << headingString << printMainMenuString;
 
 		do
 		{
@@ -151,10 +149,15 @@ int main()
 			{
 				choice = choiceString[0];
 				invalidInputBool = false;
+				if (calledBack)
+					calledBack = false;
 			}
 			else
 			{
-				cout << CLEAR_SCREEN << headingString << printMainMenuString << inputPromptStr << RED << invalidInputStr << RESET;
+				if (!calledBack)
+					cout << CLEAR_SCREEN << headingString << printMainMenuString << inputPromptStr << RED << invalidInputStr << RESET;
+				else
+					calledBack = false;
 			}
 
 		} while (invalidInputBool);
@@ -172,10 +175,9 @@ int main()
 				if (bookType::bookCount == 0)
 				{
 					cout << CLEAR_SCREEN << headingString << printMainMenuString << inputPromptStr
-					<< RED  << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight  << "H" << setfill(' ')
-					<< setw(INPUT_PRINT_FILL) << " "<< "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H"
+					<< RED << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight  << "H" << setfill(' ')
+					<< setw(INPUT_PRINT_FILL) << " " << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H"
 					<< "Inventory empty." << RESET;
-
 				}
 				else
 				{
@@ -184,6 +186,7 @@ int main()
 					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 					cashier(head, tail);
+					calledBack = true;
 				}
 
 				break;
@@ -196,6 +199,7 @@ int main()
 				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 				invMenu(head, tail);
+				calledBack = true;
 				break;
 
 			// Reports Menu
@@ -205,7 +209,8 @@ int main()
 				//cout << pressEnterStr;
 				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				reports();
+				reports(head, tail);
+				calledBack = true;
 				break;
 
 			// Exit
@@ -224,7 +229,7 @@ int main()
 				break;
 		}
 
-	} while (keepActive);
+	}
 
 	destroyList(head, tail);
 

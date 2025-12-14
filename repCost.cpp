@@ -12,8 +12,9 @@
 ****************************************************************************/
 
 #include "format.h"
+#include "reports.h"
 
-void repCost()
+void repCost(bookNode*& head, bookNode*& tail)
 {
 	
 }

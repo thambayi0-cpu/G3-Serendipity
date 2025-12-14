@@ -14,7 +14,7 @@
 #include "reports.h"
 
 
-void reports()
+void reports(bookNode*& head, bookNode*& tail)
 {
 	// Constants
 	const string INPUT_PROMPT     = "Enter Your Choice: ";
@@ -83,25 +83,26 @@ void reports()
 	pressEnterStr      = pressEnter.str();
 
 	bool done = false;
+	bool calledBack = false;
 
 
 
+	// Clear Screen
+	cout << CLEAR_SCREEN;
 
+	// OUTPUT HEADING - Class heading output
+	cout << headingString;
+
+	// INPUT - Reports Menu Display
+	cout << printReportsMenuString;
 
 	// INPUT - Inventory Menu Input Prompt for "Choice"
 	while (!done)
 	{
-		// Clear Screen
-		cout << CLEAR_SCREEN;
-
-		// OUTPUT HEADING - Class heading output
-		cout << headingString;
-
-
-		// INPUT - Reports Menu Display
-		cout << printReportsMenuString;
-
 		invalidInputBool = true;
+
+		if (calledBack)
+			cout << CLEAR_SCREEN << headingString << printReportsMenuString;
 
 		choice = 0;
 		do
@@ -125,10 +126,15 @@ void reports()
 			{
 				choice = choiceString[0];
 				invalidInputBool = false;
+				if (calledBack)
+					calledBack = false;
 			}
 			else
 			{
-				cout << CLEAR_SCREEN << headingString << printReportsMenuString << inputPromptStr << RED << invalidInputStr << RESET;
+				if (!calledBack)
+					cout << CLEAR_SCREEN << headingString << printReportsMenuString << inputPromptStr << RED << invalidInputStr << RESET;
+				else
+					calledBack = false;
 			}
 
 		} while (invalidInputBool);
@@ -137,72 +143,132 @@ void reports()
 		// Selection statement for inventory menu selection
 		switch (choice)
 		{
-
 			// RepListing
 			case '1':
-				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				if (bookType::bookCount == 0)
+				{
+					cout << CLEAR_SCREEN << headingString << printReportsMenuString << inputPromptStr
+					<< RED << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight  << "H" << setfill(' ')
+					<< setw(INPUT_PRINT_FILL) << " " << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H"
+					<< "Inventory empty." << RESET;
+				}
+				else
+				{
+					cout << GREEN << inputPrintStr << choice << "." << RESET;
+					//cout << pressEnterStr;
+					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				repListing();
+					repListing(head, tail);
+					calledBack = true;
+				}
 				break;
 
 			// RepWholesale
 			case '2':
-				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				if (bookType::bookCount == 0)
+				{
+					cout << CLEAR_SCREEN << headingString << printReportsMenuString << inputPromptStr
+					<< RED << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight  << "H" << setfill(' ')
+					<< setw(INPUT_PRINT_FILL) << " " << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H"
+					<< "Inventory empty." << RESET;
+				}
+				else
+				{
+					cout << GREEN << inputPrintStr << choice << "." << RESET;
+					//cout << pressEnterStr;
+					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				repWholesale();
+					repWholesale(head, tail);
+					calledBack = true;
+				}
 				break;
 
 			// RepRetail
 			case '3':
-				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				if (bookType::bookCount == 0)
+				{
+					cout << CLEAR_SCREEN << headingString << printReportsMenuString << inputPromptStr
+					<< RED << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight  << "H" << setfill(' ')
+					<< setw(INPUT_PRINT_FILL) << " " << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H"
+					<< "Inventory empty." << RESET;
+				}
+				else
+				{
+					cout << GREEN << inputPrintStr << choice << "." << RESET;
+					//cout << pressEnterStr;
+					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				repRetail();
+					repRetail(head, tail);
+					calledBack = true;
+				}
 				break;
 
 			// RepQty
 			case '4':
-				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				if (bookType::bookCount == 0)
+				{
+					cout << CLEAR_SCREEN << headingString << printReportsMenuString << inputPromptStr
+					<< RED << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight  << "H" << setfill(' ')
+					<< setw(INPUT_PRINT_FILL) << " " << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H"
+					<< "Inventory empty." << RESET;
+				}
+				else
+				{
+					cout << GREEN << inputPrintStr << choice << "." << RESET;
+					//cout << pressEnterStr;
+					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				repQty();
+					repQty(head, tail);
+					calledBack = true;
+				}
 				break;
 
 			// RepCost
 			case '5':
-				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				cout << pressEnterStr;;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				if (bookType::bookCount == 0)
+				{
+					cout << CLEAR_SCREEN << headingString << printReportsMenuString << inputPromptStr
+					<< RED << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight  << "H" << setfill(' ')
+					<< setw(INPUT_PRINT_FILL) << " " << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H"
+					<< "Inventory empty." << RESET;
+				}
+				else
+				{
+					cout << GREEN << inputPrintStr << choice << "." << RESET;
+					//cout << pressEnterStr;
+					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				repCost();
+					repCost(head, tail);
+					calledBack = true;
+				}
 				break;
 
 			// RepAge
 			case '6':
-				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				if (bookType::bookCount == 0)
+				{
+					cout << CLEAR_SCREEN << headingString << printReportsMenuString << inputPromptStr
+					<< RED << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight  << "H" << setfill(' ')
+					<< setw(INPUT_PRINT_FILL) << " " << "\x1b[" << inputPrintRow  << ";" << inputPrintHeight << "H"
+					<< "Inventory empty." << RESET;
+				}
+				else
+				{
+					cout << GREEN << inputPrintStr << choice << "." << RESET;
+					//cout << pressEnterStr;
+					//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-				repAge();
+					repAge(head, tail);
+					calledBack = true;
+				}
 				break;
 
 			// Exit return to main menu
 			case '7':
 				cout << GREEN << inputPrintStr << choice << "." << RESET;
-				cout << pressEnterStr;
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				//cout << pressEnterStr;
+				//cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				done = true;
-				break;
-
-			// Error message
-			default:
-				cout << RED << invalidInputStr << RESET;
 				break;
 		}
 
